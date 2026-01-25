@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const agreeTermsBtn = document.getElementById('agreeTermsBtn');
     
     // School UPI ID - CHANGE THIS TO YOUR SCHOOL'S ACTUAL UPI ID
-    const SCHOOL_UPI_ID = "kiddszoneschool@okhdfcbank";
+    const SCHOOL_UPI_ID = "6203798089@upi";
     
     // Display elements
     const displayStudentName = document.getElementById('displayStudentName');
@@ -929,4 +929,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize when DOM is loaded
     initPaymentPage();
+
 });
