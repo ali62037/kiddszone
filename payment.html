@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Make a Payment - KIDD'S ZONE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="payment.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <!-- Floating Contact Toggle -->
+    <div class="floating-contact">
+        <div class="contact-icons" id="contactIcons">
+            <a href="tel:+1234567890" class="contact-icon call" title="Call Now">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://wa.me/1234567890" target="_blank" class="contact-icon whatsapp" title="WhatsApp Chat">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <!-- <button class="contact-toggle" id="contactToggle">
+            <i class="fas fa-comment-dots"></i>
+        </button> -->
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🎨 KIDD'S ZONE</h1>
+                <p class="tagline">A Unit of Complete Study</p>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">🏠 Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">📚 About Us</a></li>
+                    <li class="nav-item"><a href="admission.html" class="nav-link">✏️ Admission</a></li>
+                    <li class="nav-item"><a href="payment.html" class="nav-link active">💳 Pay Fees</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">📞 Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <button class="close-menu" id="closeMenu">&times;</button>
+          <ul class="mobile-nav">
+                <li><a href="index.html" class="mobile-nav-link">🏠 Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link">📚 About Us</a></li>
+                <li><a href="admission.html" class="mobile-nav-link">✏️ Admission</a></li>
+                <li><a href="payment.html" class="mobile-nav-link">💳 Pay Fees</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">📞 Contact</a></li>
+            </ul>
+            <div class="mobile-contact">
+                <a href="tel:+91 70047 06917" class="mobile-call-btn">📞 Call Now</a>
+                <a href="https://wa.me/+9170047 06917" target="_blank" class="mobile-whatsapp-btn">💬 WhatsApp Chat</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Payment Hero Section -->
+    <section class="page-hero payment-hero">
+        <div class="container">
+            <h1 class="page-title">Quick & Secure Fee Payment 💳</h1>
+            <p class="page-subtitle">Pay school fees instantly using UPI. Safe, simple, and paperless!</p>
+            <div class="hero-decoration">
+                <div class="decoration-item">📱</div>
+                <div class="decoration-item">💸</div>
+                <div class="decoration-item">✅</div>
+            </div>
+        </div>
+        <div class="page-bg-elements">
+            <div class="bg-element">💰</div>
+            <div class="bg-element">🏦</div>
+            <div class="bg-element">🔒</div>
+            <div class="bg-element">📲</div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-container">
+                <!-- Payment Form -->
+                <div class="payment-form-container">
+                    <h2><i class="fas fa-rupee-sign"></i> Make a Payment</h2>
+                    <p class="form-subtitle">Fill in the details below to generate your payment request</p>
+                    
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label for="studentName">Student's Full Name *</label>
+                            <input type="text" id="studentName" name="studentName" placeholder="Enter student's name" required>
+                            <div class="form-icon">👦</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="parentName">Parent/Guardian Name *</label>
+                            <input type="text" id="parentName" name="parentName" placeholder="Enter parent's name" required>
+                            <div class="form-icon">👨‍👩‍👧‍👦</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="parentPhone">Parent's Phone Number *</label>
+                            <input type="tel" id="parentPhone" name="parentPhone" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
+                            <div class="form-icon">📱</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="studentClass">Class *</label>
+                            <select id="studentClass" name="studentClass" required>
+                                <option value="">Select Class</option>
+                                <option value="Pre-Nursery">Pre-Nursery</option>
+                                <option value="Nursery">Nursery</option>
+                                <option value="Kindergarten">Kindergarten</option>
+                                <option value="Class 1">Class 1</option>
+                                <option value="Class 2">Class 2</option>
+                                <option value="Class 3">Class 3</option>
+                                <option value="Class 4">Class 4</option>
+                                <option value="Class 5">Class 5</option>
+                            </select>
+                            <div class="form-icon">🏫</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paymentPurpose">Payment Purpose *</label>
+                            <select id="paymentPurpose" name="paymentPurpose" required>
+                                <option value="">Select Purpose</option>
+                                <option value="Monthly Tuition Fee">Monthly Tuition Fee</option>
+                                <option value="Quarterly Fee">Quarterly Fee</option>
+                                <option value="Annual Fee">Annual Fee</option>
+                                <option value="Admission Fee">Admission Fee</option>
+                                <option value="Transport Fee">Transport Fee</option>
+                                <option value="Activity Fee">Activity Fee</option>
+                                <option value="Examination Fee">Examination Fee</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="form-icon">🎯</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="amount">Amount (₹) *</label>
+                            <div class="amount-input-container">
+                                <span class="currency-symbol">₹</span>
+                                <input type="number" id="amount" name="amount" placeholder="Enter amount" min="1" step="1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paymentNote">Payment Note (Optional)</label>
+                            <textarea id="paymentNote" name="paymentNote" rows="2" placeholder="E.g., For January 2024 fee, Roll No. 15"></textarea>
+                            <div class="form-icon">📝</div>
+                        </div>
+                        
+                        <div class="form-terms">
+                            <label>
+                                <input type="checkbox" required>
+                                I agree to the <a href="#" id="termsLink">Terms & Conditions</a> of fee payment
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large" id="generateBtn">
+                            <i class="fas fa-qrcode"></i> Generate UPI Payment Request
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- UPI Payment Box -->
+                <div class="upi-payment-box" id="upiPaymentBox">
+                    <div class="payment-header">
+                        <h3><i class="fas fa-university"></i> KIDD'S ZONE Payment</h3>
+                        <p class="payment-id">Payment ID: <span id="paymentId">--</span></p>
+                    </div>
+                    
+                    <div class="payment-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Student Name:</span>
+                            <span class="detail-value" id="displayStudentName">--</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Class:</span>
+                            <span class="detail-value" id="displayClass">--</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Purpose:</span>
+                            <span class="detail-value" id="displayPurpose">--</span>
+                        </div>
+                        <div class="detail-row highlight">
+                            <span class="detail-label">Amount:</span>
+                            <span class="detail-value" id="displayAmount">₹ 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="upi-section">
+                        <h4><i class="fas fa-mobile-alt"></i> Pay via UPI</h4>
+                        <p class="upi-info">Scan the QR code or use the UPI ID below</p>
+                        
+                        <div class="qr-section">
+                            <div class="qr-code-container" id="qrCodeContainer">
+                                <!-- QR code will be generated here -->
+                                <div class="qr-placeholder">
+                                    <i class="fas fa-qrcode"></i>
+                                    <p>Fill form to generate QR code</p>
+                                </div>
+                            </div>
+                            
+                            <div class="qr-instruction">
+                                <h5><i class="fas fa-info-circle"></i> How to Scan:</h5>
+                                <ul>
+                                    <li><i class="fas fa-camera"></i> Open any UPI app</li>
+                                    <li><i class="fas fa-search"></i> Tap 'Scan QR Code'</li>
+                                    <li><i class="fas fa-check-circle"></i> Enter amount & pay</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="upi-id-section">
+                            <div class="upi-id-header">
+                                <span class="upi-id-label"><i class="fas fa-id-card"></i> Our UPI ID:</span>
+                                <button class="btn-copy-small" id="copyUpiBtn" title="Copy UPI ID">
+                                    <i class="far fa-copy"></i> Copy
+                                </button>
+                            </div>
+                            <div class="upi-id-value" id="schoolUpiId">kiddszoneschool@okhdfcbank</div>
+                        </div>
+                        
+                        <div class="payment-steps">
+                            <h5><i class="fas fa-list-ol"></i> Important Steps:</h5>
+                            <ol>
+                                <li>Enter the <strong>exact amount</strong> shown above</li>
+                                <li>Add Payment ID in remarks: <code id="remarksId">--</code></li>
+                                <li>Complete payment in your UPI app</li>
+                                <li>Click 'Payment Done' below</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="payment-actions">
+                            <button class="btn btn-success btn-large" id="paymentDoneBtn" disabled>
+                                <i class="fas fa-check-circle"></i> I Have Completed Payment
+                            </button>
+                            <button class="btn btn-tertiary" id="downloadReceiptBtn" disabled>
+                                <i class="fas fa-receipt"></i> Download Receipt
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-security">
+                        <p><i class="fas fa-shield-alt"></i> <strong>100% Secure Payment</strong> • Encrypted UPI Transaction • Instant Confirmation</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment Instructions -->
+            <div class="payment-instructions">
+                <h3><i class="fas fa-info-circle"></i> Important Instructions</h3>
+                <div class="instructions-grid">
+                    <div class="instruction-card">
+                        <div class="instruction-icon">1</div>
+                        <h4>Keep Details Ready</h4>
+                        <p>Have student name, class, and payment details ready before starting.</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-icon">2</div>
+                        <h4>Use Correct Amount</h4>
+                        <p>Enter the exact amount as per your fee structure. Do not modify.</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-icon">3</div>
+                        <h4>Add Payment ID in Remarks</h4>
+                        <p>Mention the Payment ID in UPI transaction remarks for tracking.</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-icon">4</div>
+                        <h4>Save Transaction Screenshot</h4>
+                        <p>Keep screenshot of payment confirmation for your records.</p>
+                    </div>
+                </div>
+                
+                <div class="support-note">
+                    <p><i class="fas fa-headset"></i> <strong>Need Help?</strong> For payment-related queries, contact school office: +91-XXXXXXXXXX or email: accounts@kiddszone.edu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>🎨 KIDD'S ZONE</h2>
+                    <p>A Unit of Complete Study</p>
+                    <p>Pre-Nursery to Class 5</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="payment.html">Pay Fees</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                     <p><i class="fas fa-map-marker-alt"></i>Gaush Nagar mani tola doranda, Ranchi, Jharkhand 834002</p>
+                    <p><i class="fas fa-phone"></i> +91 70047 06917</p>
+                    <p><i class="fas fa-envelope"></i> info@kiddszone.edu</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KIDD'S ZONE - A Unit of Complete Study. All rights reserved. 🧸</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-check-circle success-icon"></i> Payment Submitted Successfully!</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message">
+                    <p><i class="fas fa-thumbs-up"></i> Thank you for your payment. Your transaction has been recorded.</p>
+                </div>
+                <div class="success-details">
+                    <div class="success-row">
+                        <span class="success-label">Payment ID:</span>
+                        <span class="success-value" id="successPaymentId">--</span>
+                    </div>
+                    <div class="success-row">
+                        <span class="success-label">Amount Paid:</span>
+                        <span class="success-value" id="successAmount">₹ 0</span>
+                    </div>
+                    <div class="success-row">
+                        <span class="success-label">Student:</span>
+                        <span class="success-value" id="successStudent">--</span>
+                    </div>
+                </div>
+                <div class="success-note">
+                    <p><i class="fas fa-clock"></i> <strong>Note:</strong> Please allow 24-48 hours for payment verification and fee status update. You will receive confirmation via SMS.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="printReceiptBtn">
+                    <i class="fas fa-print"></i> Print Receipt
+                </button>
+                <button class="btn btn-secondary" id="newPaymentBtn">
+                    <i class="fas fa-plus"></i> New Payment
+                </button>
+                <button class="btn btn-tertiary" id="goHomeBtn">
+                    <i class="fas fa-home"></i> Back to Home
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal" id="termsModal">
+        <div class="modal-content terms-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-file-contract"></i> Payment Terms & Conditions</h2>
+                <button class="modal-close" id="termsClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="terms-content-inner">
+                    <h3>Payment Terms & Conditions</h3>
+                    <p>By making a payment to KIDD'S ZONE, you agree to the following terms:</p>
+                    
+                    <h4>1. Payment Processing</h4>
+                    <ul>
+                        <li>All payments are processed through secure UPI gateways</li>
+                        <li>Transaction confirmation may take 24-48 hours</li>
+                        <li>Keep your payment ID for future reference</li>
+                    </ul>
+                    
+                    <h4>2. Refund Policy</h4>
+                    <ul>
+                        <li>Refunds are processed within 7-10 working days</li>
+                        <li>Administrative charges may apply for refunds</li>
+                        <li>Refund requests must be submitted in writing</li>
+                    </ul>
+                    
+                    <h4>3. Data Privacy</h4>
+                    <ul>
+                        <li>We do not store your card/bank details</li>
+                        <li>Payment information is encrypted</li>
+                        <li>Your data is protected under privacy laws</li>
+                    </ul>
+                    
+                    <p class="terms-note"><i class="fas fa-exclamation-circle"></i> For any payment-related queries, please contact our accounts department.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="agreeTermsBtn">I Agree</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+</body>
+</html>
