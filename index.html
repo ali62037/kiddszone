@@ -10,17 +10,196 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
+    <style>
+        /* ===== SIMPLE NOTIFICATION STYLES ===== */
+        .simple-notification {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #FF6B8B 0%, #FF8BA7 100%);
+            color: white;
+            padding: 12px 0;
+            z-index: 2000;
+            box-shadow: 0 4px 15px rgba(255, 107, 139, 0.3);
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .notification-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .notification-bell {
+            font-size: 1.3rem;
+            animation: bellRing 2s infinite;
+            flex-shrink: 0;
+        }
+        
+        @keyframes bellRing {
+            0%, 100% { transform: rotate(0); }
+            5%, 15% { transform: rotate(15deg); }
+            10%, 20% { transform: rotate(-15deg); }
+            25% { transform: rotate(0); }
+        }
+        
+        .notification-message {
+            flex: 1;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .notification-tag {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            display: inline-block;
+        }
+        
+        .notification-new {
+            background: #FFD166;
+            color: #2D3047;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+            margin-left: 8px;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .notification-remove {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .notification-remove:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        /* Adjust header for notification */
+        body.notification-visible .header {
+            top: 48px;
+        }
+        
+        body.notification-visible .hero {
+            padding-top: 180px;
+        }
+        
+        /* For different notification types (optional) */
+        .notification-holiday {
+            background: linear-gradient(135deg, #FFD166 0%, #FFDE8A 100%);
+            color: #2D3047;
+        }
+        
+        .notification-holiday .notification-remove {
+            background: rgba(45, 48, 71, 0.1);
+            color: #2D3047;
+        }
+        
+        .notification-holiday .notification-tag {
+            background: rgba(45, 48, 71, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .notification-message {
+                font-size: 0.85rem;
+                text-align: left;
+            }
+            
+            .notification-wrapper {
+                gap: 10px;
+            }
+            
+            .notification-tag {
+                display: block;
+                margin-bottom: 4px;
+                margin-right: 0;
+            }
+            
+            body.notification-visible .header {
+                top: 56px;
+            }
+            
+            body.notification-visible .hero {
+                padding-top: 190px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .notification-message {
+                font-size: 0.8rem;
+            }
+            
+            .notification-new {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- ============================ -->
+    <!-- SIMPLE NOTIFICATION - EDIT HERE -->
+    <!-- ============================ -->
+    <div class="simple-notification" id="schoolNotification">
+        <div class="notification-wrapper">
+            <div class="notification-bell">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <div class="notification-message">
+                <span class="notification-tag">🎉 Holiday Notice</span>
+                School will remain closed on 25th December 2024 for Christmas celebrations.
+                <span class="notification-new">NEW</span>
+            </div>
+            <button class="notification-remove" id="closeNotification">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <!-- ============================ -->
+    <!-- END NOTIFICATION -->
+    <!-- ============================ -->
+
     <!-- Music Toggle -->
-    <div class="music-toggle">
+    <!-- <div class="music-toggle">
         <button id="musicBtn" class="music-btn">
             <i class="fas fa-music"></i>
         </button>
         <audio id="bgMusic" loop muted>
             <source src="https://assets.mixkit.co/music/preview/mixkit-happy-day-583.mp3" type="audio/mpeg">
         </audio>
-    </div>
+    </div> -->
 
     <!-- Floating Contact Toggle -->
     <div class="floating-contact">
@@ -31,10 +210,13 @@
             <a href="https://wa.me/+91070047 06917" target="_blank" class="contact-icon whatsapp" title="WhatsApp Chat">
                 <i class="fab fa-whatsapp"></i>
             </a>
+            <a href="https://instagram.com/yourpage" target="_blank" class="contact-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com/@yourchannel" target="_blank" class="contact-icon youtube">
+                <i class="fab fa-youtube"></i>
+            </a>
         </div>
-        <button class="contact-toggle" id="contactToggle">
-            <i class="fas fa-comment-dots"></i>
-        </button>
     </div>
 
     <!-- Header & Navigation -->
@@ -50,9 +232,11 @@
                     <li class="nav-item"><a href="index.html" class="nav-link active">🏠 Home</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">📚 About Us</a></li>
                     <li class="nav-item"><a href="admission.html" class="nav-link">✏️ Admission</a></li>
+                    <li class="nav-item"><a href="payment.html" class="nav-link">💳 Pay Fees</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">📞 Contact</a></li>
                 </ul>
                 <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -69,6 +253,7 @@
                 <li><a href="index.html" class="mobile-nav-link">🏠 Home</a></li>
                 <li><a href="about.html" class="mobile-nav-link">📚 About Us</a></li>
                 <li><a href="admission.html" class="mobile-nav-link">✏️ Admission</a></li>
+                <li><a href="payment.html" class="mobile-nav-link">💳 Pay Fees</a></li>
                 <li><a href="contact.html" class="mobile-nav-link">📞 Contact</a></li>
             </ul>
             <div class="mobile-contact">
@@ -231,5 +416,37 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Simple Notification JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const notification = document.getElementById('schoolNotification');
+            const closeBtn = document.getElementById('closeNotification');
+            
+            // Close notification when X is clicked
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    notification.style.transform = 'translateY(-100%)';
+                    notification.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                        document.body.classList.remove('notification-visible');
+                    }, 500);
+                });
+            }
+            
+            // Auto-hide "NEW" badge after 5 seconds
+            setTimeout(() => {
+                const newBadge = document.querySelector('.notification-new');
+                if (newBadge) {
+                    newBadge.style.animation = 'none';
+                    newBadge.style.opacity = '0.5';
+                }
+            }, 5000);
+            
+            // Add class to body for spacing
+            document.body.classList.add('notification-visible');
+        });
+    </script>
 </body>
 </html>
