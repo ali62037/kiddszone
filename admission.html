@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission - KIDD'S ZONE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
+</head>
+<body>
+    <!-- Music Toggle -->
+    <div class="music-toggle">
+        <button id="musicBtn" class="music-btn">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Floating Contact Toggle -->
+    <div class="floating-contact">
+        <div class="contact-icons" id="contactIcons">
+            <a href="tel:+9170047 06917" class="contact-icon call" title="Call Now">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://wa.me/+91 70047 06917" target="_blank" class="contact-icon whatsapp" title="WhatsApp Chat">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <button class="contact-toggle" id="contactToggle">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🎨 KIDD'S ZONE</h1>
+                <p class="tagline">A Unit of Complete Study</p>
+            </div>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">🏠 Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">📚 About Us</a></li>
+                    <li class="nav-item"><a href="admission.html" class="nav-link active">✏️ Admission</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">📞 Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <button class="close-menu" id="closeMenu">&times;</button>
+            <ul class="mobile-nav">
+                <li><a href="index.html" class="mobile-nav-link">🏠 Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link">📚 About Us</a></li>
+                <li><a href="admission.html" class="mobile-nav-link">✏️ Admission</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">📞 Contact</a></li>
+            </ul>
+            <div class="mobile-contact">
+                <a href="tel:+91 70047 06917" class="mobile-call-btn">📞 Call Now</a>
+                <a href="https://wa.me/+9170047 06917" target="_blank" class="mobile-whatsapp-btn">💬 WhatsApp Chat</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admission Hero -->
+    <section class="page-hero admission-hero">
+        <div class="container">
+            <h1 class="page-title">Admission Process ✏️</h1>
+            <p class="page-subtitle">Join our joyful learning community today!</p>
+            <div class="hero-decoration">
+                <div class="decoration-item">📋</div>
+                <div class="decoration-item">✍️</div>
+                <div class="decoration-item">🎒</div>
+            </div>
+        </div>
+        <div class="page-bg-elements">
+            <div class="bg-element">📝</div>
+            <div class="bg-element">🎨</div>
+            <div class="bg-element">🔢</div>
+            <div class="bg-element">📚</div>
+        </div>
+    </section>
+
+    <!-- Classes Offered -->
+    <section class="classes-offered">
+        <div class="container">
+            <h2 class="section-title">Classes Offered 🎒</h2>
+            <p class="section-subtitle">We provide education for children from Pre-Nursery to Class 5</p>
+            
+            <div class="classes-grid">
+                <div class="class-card">
+                    <div class="class-icon">👶</div>
+                    <h3>Pre-Nursery</h3>
+                    <p>Age: 2.5 - 3.5 years</p>
+                    <div class="class-highlight">Play-based learning</div>
+                </div>
+                <div class="class-card">
+                    <div class="class-icon">🧒</div>
+                    <h3>Nursery</h3>
+                    <p>Age: 3.5 - 4.5 years</p>
+                    <div class="class-highlight">Introduction to basics</div>
+                </div>
+                <div class="class-card">
+                    <div class="class-icon">👦</div>
+                    <h3>Kindergarten</h3>
+                    <p>Age: 4.5 - 5.5 years</p>
+                    <div class="class-highlight">Structured learning</div>
+                </div>
+                <div class="class-card">
+                    <div class="class-icon">📖</div>
+                    <h3>Class 1-5</h3>
+                    <p>Age: 5.5 - 10 years</p>
+                    <div class="class-highlight">Comprehensive curriculum</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Process -->
+    <section class="admission-process">
+        <div class="container">
+            <h2 class="section-title">Admission Process 📋</h2>
+            <p class="section-subtitle">Simple steps to join KIDD'S ZONE family</p>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Inquiry & Visit</h3>
+                        <p>Contact us to schedule a school visit. Meet our teachers and explore our facilities.</p>
+                        <div class="step-emoji">🏫</div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Application Form</h3>
+                        <p>Fill out the admission form with necessary details about your child.</p>
+                        <div class="step-emoji">📝</div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Interaction Session</h3>
+                        <p>Friendly interaction with teachers to understand your child's needs.</p>
+                        <div class="step-emoji">👩‍🏫</div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Document Submission</h3>
+                        <p>Submit required documents: birth certificate, photos, and previous school records.</p>
+                        <div class="step-emoji">📄</div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Admission Confirmation</h3>
+                        <p>Receive admission confirmation and complete fee payment.</p>
+                        <div class="step-emoji">✅</div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Orientation & Welcome</h3>
+                        <p>Attend orientation session and welcome your child to KIDD'S ZONE!</p>
+                        <div class="step-emoji">🎉</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission CTA -->
+    <section class="admission-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Enroll Your Child? 🎈</h2>
+                <p>Limited seats available for the upcoming session. Secure your child's place today!</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">📞 Schedule a Visit</a>
+                    <a href="tel:+9170047 06917" class="btn btn-secondary btn-large">📲 Call for Inquiry</a>
+                    <a href="https://drive.google.com/file/d/1AHxFuH4Sg0lbc4potypkG1AFuv9X5FZZ/view?usp=sharing" class="btn btn-tertiary btn-large" id="downloadForm">📥 Download Form</a>
+                </div>
+                <div class="cta-note">
+                    <p><i class="fas fa-info-circle"></i> For any queries regarding admission, feel free to contact our admission office.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Required Documents -->
+    <section class="required-docs">
+        <div class="container">
+            <h2 class="section-title">Required Documents 📄</h2>
+            <div class="docs-list">
+                <div class="doc-item">
+                    <div class="doc-icon">📄</div>
+                    <h3>Birth Certificate</h3>
+                    <p>Original and photocopy</p>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">🖼️</div>
+                    <h3>Passport Photos</h3>
+                    <p>4 recent passport-sized photographs</p>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">🏠</div>
+                    <h3>Address Proof</h3>
+                    <p>Aadhaar card or utility bill</p>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">💉</div>
+                    <h3>Medical Certificate</h3>
+                    <p>Vaccination record and health certificate</p>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">🏫</div>
+                    <h3>Transfer Certificate</h3>
+                    <p>For students joining from other schools (Class 1-5)</p>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Parent ID Proof</h3>
+                    <p>Parent's Aadhaar card or passport</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>🎨 KIDD'S ZONE</h2>
+                    <p>A Unit of Complete Study</p>
+                    <p>Pre-Nursery to Class 5</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>Gaush Nagar mani tola doranda, Ranchi, Jharkhand 834002</p>
+                    <p><i class="fas fa-phone"></i> +91 70047 06917</p>
+                    <p><i class="fas fa-envelope"></i> info@kiddszone.edu</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KIDD'S ZONE - A Unit of Complete Study. All rights reserved. 🧸</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

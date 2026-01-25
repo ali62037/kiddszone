@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIDD'S ZONE - Kids School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
+</head>
+<body>
+    <!-- Music Toggle -->
+    <div class="music-toggle">
+        <button id="musicBtn" class="music-btn">
+            <i class="fas fa-music"></i>
+        </button>
+        <audio id="bgMusic" loop muted>
+            <source src="https://assets.mixkit.co/music/preview/mixkit-happy-day-583.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Floating Contact Toggle -->
+    <div class="floating-contact">
+        <div class="contact-icons" id="contactIcons">
+            <a href="tel:+91070047 06917" class="contact-icon call" title="Call Now">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://wa.me/+91070047 06917" target="_blank" class="contact-icon whatsapp" title="WhatsApp Chat">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <button class="contact-toggle" id="contactToggle">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🎨 KIDD'S ZONE</h1>
+                <p class="tagline">A Unit of Complete Study</p>
+            </div>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link active">🏠 Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">📚 About Us</a></li>
+                    <li class="nav-item"><a href="admission.html" class="nav-link">✏️ Admission</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">📞 Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <button class="close-menu" id="closeMenu">&times;</button>
+            <ul class="mobile-nav">
+                <li><a href="index.html" class="mobile-nav-link">🏠 Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link">📚 About Us</a></li>
+                <li><a href="admission.html" class="mobile-nav-link">✏️ Admission</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">📞 Contact</a></li>
+            </ul>
+            <div class="mobile-contact">
+                <a href="tel:+91 070047 06917" class="mobile-call-btn">📞 Call Now</a>
+                <a href="https://wa.me/+91070047 06917" target="_blank" class="mobile-whatsapp-btn">💬 WhatsApp Chat</a>
+            </div>
+            <div class="mobile-decorations">
+                <div class="mobile-cloud"></div>
+                <div class="mobile-star"></div>
+                <div class="mobile-balloon"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Take a Step Forward to Your Child's <span class="highlight">Bright Future</span></h2>
+                <p class="hero-subtitle">Where learning meets fun! 🎈 A safe and nurturing environment for children from Pre-Nursery to Class 5.</p>
+                <div class="hero-buttons">
+                    <a href="tel:+91070047 06917" class="btn btn-primary">📞 Call Now</a>
+                    <a href="https://wa.me/+91070047 06917" target="_blank" class="btn btn-secondary">💬 WhatsApp Chat</a>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <div class="floating-elements">
+                    <div class="floating-book">📚</div>
+                    <div class="floating-pencil">✏️</div>
+                    <div class="floating-apple">🍎</div>
+                    <div class="floating-star">⭐</div>
+                </div>
+                <div class="school-illustration">
+                    <div class="school-building"></div>
+                    <div class="kid kid1">🧒</div>
+                    <div class="kid kid2">👧</div>
+                    <div class="tree"></div>
+                    <div class="sun"></div>
+                    <div class="cloud cloud1"></div>
+                    <div class="cloud cloud2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Animated Background Elements -->
+        <div class="bg-element bg-balloon1">🎈</div>
+        <div class="bg-element bg-balloon2">🎈</div>
+        <div class="bg-element bg-star1">⭐</div>
+        <div class="bg-element bg-star2">⭐</div>
+        <div class="bg-element bg-cloud1">☁️</div>
+        <div class="bg-element bg-cloud2">☁️</div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Our Special Features 🎯</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-house"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Classes</h3>
+                    <p class="feature-description">Interactive digital learning with animated lessons and educational games.</p>
+                    <div class="feature-emoji">📱</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="feature-title">CCTV Surveillance</h3>
+                    <p class="feature-description">24/7 security monitoring to ensure your child's safety at all times.</p>
+                    <div class="feature-emoji">👁️</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="feature-title">Projector Based Learning</h3>
+                    <p class="feature-description">Visual and engaging lessons with projectors for better understanding.</p>
+                    <div class="feature-emoji">📽️</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counters Section -->
+    <section class="counters">
+        <div class="container">
+            <h2 class="section-title">Our School in Numbers 📊</h2>
+            <div class="counters-grid">
+                <div class="counter-item">
+                    <div class="counter-number" data-target="850">0</div>
+                    <div class="counter-label">Happy Kids 😊</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-target="12">0</div>
+                    <div class="counter-label">Classes 📚</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-target="45">0</div>
+                    <div class="counter-label">Teachers 👩‍🏫</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-target="15">0</div>
+                    <div class="counter-label">Years Experience 🎓</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Join KIDD'S ZONE? 🎉</h2>
+                <p class="cta-text">Give your child the best start in their educational journey. Enroll now for the upcoming session!</p>
+                <div class="cta-buttons">
+                    <a href="admission.html" class="btn btn-primary btn-large">✏️ Admission Form</a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">📞 Schedule a Visit</a>
+                </div>
+            </div>
+            <div class="cta-illustration">
+                <div class="cta-bus">🚌</div>
+                <div class="cta-kids">👫</div>
+                <div class="cta-balloons">🎈🎈</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>🎨 KIDD'S ZONE</h2>
+                    <p>A Unit of Complete Study</p>
+                    <p>Pre-Nursery to Class 5</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Gaush Nagar mani tola doranda, Ranchi, Jharkhand 834002</p>
+                    <p><i class="fas fa-phone"></i> +91 70047 06917</p>
+                    <p><i class="fas fa-envelope"></i> info@kiddszone.edu</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KIDD'S ZONE - A Unit of Complete Study. All rights reserved. 🧸</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - KIDD'S ZONE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
+</head>
+<body>
+    <!-- Music Toggle -->
+    <div class="music-toggle">
+        <button id="musicBtn" class="music-btn">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Floating Contact Toggle -->
+    <div class="floating-contact">
+        <div class="contact-icons" id="contactIcons">
+            <a href="tel:+91070047 06917" class="contact-icon call" title="Call Now">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://wa.me/+91070047 06917" target="_blank" class="contact-icon whatsapp" title="WhatsApp Chat">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <button class="contact-toggle" id="contactToggle">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🎨 KIDD'S ZONE</h1>
+                <p class="tagline">A Unit of Complete Study</p>
+            </div>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">🏠 Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">📚 About Us</a></li>
+                    <li class="nav-item"><a href="admission.html" class="nav-link">✏️ Admission</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active">📞 Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <button class="close-menu" id="closeMenu">&times;</button>
+            <ul class="mobile-nav">
+                <li><a href="index.html" class="mobile-nav-link">🏠 Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link">📚 About Us</a></li>
+                <li><a href="admission.html" class="mobile-nav-link">✏️ Admission</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">📞 Contact</a></li>
+            </ul>
+            <div class="mobile-contact">
+                <a href="tel:+9107004706917" class="mobile-call-btn">📞 Call Now</a>
+                <a href="https://wa.me/+91070047 06917" target="_blank" class="mobile-whatsapp-btn">💬 WhatsApp Chat</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Hero -->
+    <section class="page-hero contact-hero">
+        <div class="container">
+            <h1 class="page-title">Contact Us 📞</h1>
+            <p class="page-subtitle">We'd love to hear from you! Get in touch with us.</p>
+            <div class="hero-decoration">
+                <div class="decoration-item">📱</div>
+                <div class="decoration-item">📧</div>
+                <div class="decoration-item">📍</div>
+            </div>
+        </div>
+        <div class="page-bg-elements">
+            <div class="bg-element">💬</div>
+            <div class="bg-element">📨</div>
+            <div class="bg-element">📲</div>
+            <div class="bg-element">🗺️</div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Our Location</h3>
+                    <p>Gaush Nagar mani tola doranda</p>
+                    <p>Ranchi, Jharkhand 834002</p>
+                    <a href="#map" class="contact-link">View on map →</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone Number</h3>
+                    <p>+917004 706917</p>
+                    <p>+9170047 06917</p>
+                    <a href="tel:+917004706917" class="contact-link">Call now →</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Address</h3>
+                    <p>info@kiddszone.edu</p>
+                    <p>admission@kiddszone.edu</p>
+                    <a href="mailto:info@kiddszone.edu" class="contact-link">Send email →</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Working Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                    <p>Saturday: 9:00 AM - 1:00 PM</p>
+                    <a href="#" class="contact-link">Schedule a visit →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Map -->
+    <section class="contact-form-map">
+        <div class="container">
+            <div class="form-map-container">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Send us a Message 💌</h2>
+                    <p>Have questions? Fill out the form below and we'll get back to you soon.</p>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                            <div class="form-icon">👤</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                            <div class="form-icon">📱</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            <div class="form-icon">📧</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="childAge">Child's Age</label>
+                            <select id="childAge" name="childAge">
+                                <option value="">Select age group</option>
+                                <option value="2-3">2-3 years (Pre-Nursery)</option>
+                                <option value="3-4">3-4 years (Nursery)</option>
+                                <option value="4-5">4-5 years (Kindergarten)</option>
+                                <option value="5-6">5-6 years (Class 1)</option>
+                                <option value="6-7">6-7 years (Class 2)</option>
+                                <option value="7-8">7-8 years (Class 3)</option>
+                                <option value="8-9">8-9 years (Class 4)</option>
+                                <option value="9-10">9-10 years (Class 5)</option>
+                            </select>
+                            <div class="form-icon">👶</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Type your message here..."></textarea>
+                            <div class="form-icon">📝</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large">Send Message 📨</button>
+                    </form>
+                    
+                    <div class="form-success" id="formSuccess">
+                        <div class="success-icon">✅</div>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                    </div>
+                </div>
+                
+                <!-- Map -->
+                <div class="map-container" id="map">
+                    <h2>Find Us on Map 🗺️</h2>
+                    <p>Visit our campus at the following location:</p>
+                    
+                    <div class="map-placeholder">
+                        <div class="map-frame">
+                            <div class="map-content">
+                                <div class="map-marker">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="map-details">
+                                    <h3>KIDD'S ZONE Campus</h3>
+                                    <p>Gaush Nagar mani tola doranda</p>
+                                    <p>Ranchi, Jharkhand 834002</p>
+                                </div>
+                            </div>
+                            <div class="map-actions">
+                                <a href="https://www.google.com/maps/dir//KIDD'S+ZONE,+Gaush+Nagar+mani+tola+doranda,+ranchi+834082,+Ranchi,+Jharkhand+834002/@23.3432048,85.3213263,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39f4e1d4ef559b4b:0x315aae2f2a7edbc!2m2!1d85.327733!2d23.3317795?hl=en-GB&entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="btn btn-secondary">
+                                    <i class="fas fa-directions"></i> Get Directions
+                                </a>
+                            </div>
+                        </div>
+                        <div class="map-note">
+                            <p><i class="fas fa-info-circle"></i> For detailed directions, click the "Get Directions" button above.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="visit-info">
+                        <h3>Planning a Visit? 🏫</h3>
+                        <p>We recommend scheduling a visit during our working hours. Please call ahead to confirm availability.</p>
+                        <a href="tel:+917004706917" class="btn btn-tertiary">
+                            <i class="fas fa-phone"></i> Call to Schedule
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="contact-faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions ❓</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What are your school timings? ⏰</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our school timings are from 8:30 AM to 1:30 PM for Pre-Nursery to Kindergarten, and 8:30 AM to 2:30 PM for Class 1-5.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide transportation? 🚌</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide safe and GPS-enabled school buses with trained attendants for all routes across the city.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is the teacher-student ratio? 👩‍🏫</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We maintain a healthy teacher-student ratio of 1:12 for Pre-Nursery to Kindergarten and 1:20 for Class 1-5.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer extracurricular activities? 🎨</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer a wide range of extracurricular activities including art, music, dance, sports, yoga, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>🎨 KIDD'S ZONE</h2>
+                    <p>A Unit of Complete Study</p>
+                    <p>Pre-Nursery to Class 5</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>Gaush Nagar mani tola doranda, Ranchi, Jharkhand 834002</p>
+                    <p><i class="fas fa-phone"></i> +91 70047 06917</p>
+                    <p><i class="fas fa-envelope"></i> info@kiddszone.edu</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KIDD'S ZONE - A Unit of Complete Study. All rights reserved. 🧸</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
