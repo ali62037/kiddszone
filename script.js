@@ -46,22 +46,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactToggle = document.getElementById('contactToggle');
     const contactIcons = document.getElementById('contactIcons');
     
-    if (contactToggle) {
-        contactToggle.addEventListener('click', function() {
-            contactIcons.classList.toggle('active');
-            contactToggle.classList.toggle('active');
-        });
+    // if (contactToggle) {
+    //     contactToggle.addEventListener('click', function() {
+    //         contactIcons.classList.toggle('active');
+    //         contactToggle.classList.toggle('active');
+    //     });
         
-        // Close floating contact when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInside = contactToggle.contains(event.target) || contactIcons.contains(event.target);
+    //     // Close floating contact when clicking outside
+    //     document.addEventListener('click', function(event) {
+    //         const isClickInside = contactToggle.contains(event.target) || contactIcons.contains(event.target);
             
-            if (!isClickInside && contactIcons.classList.contains('active')) {
-                contactIcons.classList.remove('active');
-                contactToggle.classList.remove('active');
-            }
-        });
-    }
+    //         if (!isClickInside && contactIcons.classList.contains('active')) {
+    //             contactIcons.classList.remove('active');
+    //             contactToggle.classList.remove('active');
+    //         }
+    //     });
+    // }
     
     // ===== MUSIC TOGGLE =====
     const musicBtn = document.getElementById('musicBtn');
