@@ -8,7 +8,7 @@
 /* STEP 2: Snap ITC Font ko Load karne ka Code */
 @font-face {
     font-family: 'Snap ITC'; /* CSS ke andar isi naam se pukarenge */
-    src: url('Snap____.ttf') format('truetype'); /* Yahan apne file ka sahi path daalein */
+    src: url('SNAP____.TTF') format('truetype'); /* Yahan apne file ka sahi path daalein */
     font-weight: normal;
     font-style: normal;
 }
@@ -2016,4 +2016,5 @@ p {
     
     
 }
+
 
