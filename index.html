@@ -11,196 +11,398 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
     <style>
-        /* ===== SIMPLE NOTIFICATION STYLES ===== */
-        .simple-notification {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(135deg, #FF6B8B 0%, #FF8BA7 100%);
-            color: white;
-            padding: 12px 0;
-            z-index: 2000;
-            box-shadow: 0 4px 15px rgba(255, 107, 139, 0.3);
-            animation: slideDown 0.5s ease-out;
+        /* ===== NOTIFICATION MARQUEE STYLES ===== */
+        .notification-marquee {
+            width: 90%;
+            max-width: 900px;
+            margin: 25px auto 15px;
+            background: linear-gradient(135deg, #FFE8F0 0%, #FFD6E0 100%);
+            border-radius: 15px;
+            padding: 15px 20px;
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.25);
+            border: 3px solid #FF6B8B;
+            position: relative;
+            overflow: hidden;
+            z-index: 5;
         }
         
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .notification-wrapper {
+        .marquee-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            justify-content: center;
+            margin-bottom: 10px;
+            gap: 10px;
         }
         
-        .notification-bell {
-            font-size: 1.3rem;
-            animation: bellRing 2s infinite;
+        .marquee-icon {
+            font-size: 1.8rem;
+            background: #FF6B8B;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(255, 107, 139, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        .marquee-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2D3047;
+            margin: 0;
+        }
+        
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            height: 40px;
+        }
+        
+        .marquee-track {
+            display: flex;
+            animation: marqueeScroll 25s linear infinite;
+            white-space: nowrap;
+        }
+        
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        
+        .notification-item {
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            font-size: 1.1rem;
+            color: #2D3047;
+            white-space: nowrap;
             flex-shrink: 0;
         }
         
-        @keyframes bellRing {
-            0%, 100% { transform: rotate(0); }
-            5%, 15% { transform: rotate(15deg); }
-            10%, 20% { transform: rotate(-15deg); }
-            25% { transform: rotate(0); }
+        .notification-icon {
+            margin-right: 12px;
+            font-size: 1.2rem;
+            color: #FF6B8B;
+            flex-shrink: 0;
         }
         
-        .notification-message {
-            flex: 1;
-            font-size: 0.95rem;
+        .notification-text {
             font-weight: 500;
-            text-align: center;
-            line-height: 1.4;
         }
         
-        .notification-tag {
-            background: rgba(255, 255, 255, 0.25);
+        .notification-date {
+            background: #FF6B8B;
+            color: white;
             padding: 3px 10px;
             border-radius: 20px;
-            font-weight: 700;
             font-size: 0.85rem;
-            margin-right: 8px;
-            display: inline-block;
+            margin-left: 15px;
+            flex-shrink: 0;
         }
         
-        .notification-new {
-            background: #FFD166;
-            color: #2D3047;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            animation: pulse 2s infinite;
-            margin-left: 8px;
+        .marquee-divider {
+            font-size: 1.5rem;
+            color: #FFB6C1;
+            margin: 0 20px;
+            flex-shrink: 0;
+        }
+        
+        /* Decorative elements */
+        .marquee-decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        .marquee-balloon {
+            top: -15px;
+            right: 30px;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .marquee-star {
+            bottom: -10px;
+            left: 30px;
+            font-size: 1.8rem;
+            animation: spin 8s linear infinite;
+        }
+        
+        /* Animations */
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
         
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
         }
         
-        .notification-remove {
-            background: rgba(255, 255, 255, 0.2);
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .notification-marquee {
+                padding: 12px 15px;
+                margin: 20px auto 25px;
+            }
+            
+            .marquee-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+            
+            .marquee-title {
+                font-size: 1.2rem;
+            }
+            
+            .marquee-content {
+                height: 35px;
+            }
+            
+            .notification-item {
+                font-size: 1rem;
+                padding: 0 30px;
+            }
+            
+            .notification-date {
+                font-size: 0.8rem;
+                margin-left: 10px;
+                padding: 2px 8px;
+            }
+            
+            .marquee-divider {
+                margin: 0 15px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .notification-marquee {
+                padding: 10px 12px;
+                margin: 15px auto 45px;
+                border-width: 2px;
+            }
+            
+            .marquee-header {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            
+            .marquee-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1.3rem;
+            }
+            
+            .marquee-title {
+                font-size: 1rem;
+            }
+            
+            .marquee-content {
+                height: 30px;
+            }
+            
+            .notification-item {
+                font-size: 0.9rem;
+                padding: 0 20px;
+            }
+            
+            .notification-date {
+                font-size: 0.75rem;
+                margin-left: 8px;
+                padding: 2px 6px;
+            }
+            
+            .marquee-divider {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+            
+            .marquee-balloon, .marquee-star {
+                display: none; /* Hide decorations on very small screens */
+            }
+        }
+        
+        /* For very small screens, adjust animation speed */
+        @media (max-width: 360px) {
+            .marquee-track {
+                animation: marqueeScroll 20s linear infinite;
+            }
+        }
+
+        /* ===== IMAGE SLIDER STYLES ===== */
+        .image-slider-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 30px auto;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .slide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .slider-btn {
+            background: rgba(255, 255, 255, 0.8);
             border: none;
-            color: white;
-            width: 32px;
-            height: 32px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1.5rem;
+            color: #2D3047;
             transition: all 0.3s ease;
-            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .notification-remove:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
+        .slider-btn:hover {
+            background: white;
+            transform: scale(1.1);
         }
         
-        /* Adjust header for notification */
-        body.notification-visible .header {
-            top: 48px;
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-bottom: 20px;
         }
         
-        body.notification-visible .hero {
-            padding-top: 180px;
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
         
-        /* For different notification types (optional) */
-        .notification-holiday {
-            background: linear-gradient(135deg, #FFD166 0%, #FFDE8A 100%);
+        .dot.active {
+            background: #FF6B8B;
+            transform: scale(1.2);
+        }
+        
+        /* Slider Title */
+        .slider-title {
+            text-align: center;
+            font-size: 2.2rem;
             color: #2D3047;
+            margin: 25px auto 15px;
+            font-weight: 700;
+            max-width: 900px;
+            padding: 0 20px;
         }
         
-        .notification-holiday .notification-remove {
-            background: rgba(45, 48, 71, 0.1);
-            color: #2D3047;
+        .slider-title .emoji {
+            margin-right: 12px;
         }
         
-        .notification-holiday .notification-tag {
-            background: rgba(45, 48, 71, 0.15);
-        }
-        
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .notification-message {
-                font-size: 0.85rem;
-                text-align: left;
+            /* Slider adjustments for mobile */
+            .slider-wrapper {
+                height: 350px;
             }
             
-            .notification-wrapper {
-                gap: 10px;
+            .slider-controls {
+                padding: 0 10px;
             }
             
-            .notification-tag {
-                display: block;
-                margin-bottom: 4px;
-                margin-right: 0;
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
             
-            body.notification-visible .header {
-                top: 56px;
-            }
-            
-            body.notification-visible .hero {
-                padding-top: 190px;
+            .slider-title {
+                font-size: 1.8rem;
+                margin: 20px auto 10px;
+                padding: 0 15px;
             }
         }
         
         @media (max-width: 480px) {
-            .notification-message {
-                font-size: 0.8rem;
+            .slider-wrapper {
+                height: 280px;
             }
             
-            .notification-new {
-                display: none;
+            .slider-title {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- ============================ -->
-    <!-- SIMPLE NOTIFICATION - EDIT HERE -->
-    <!-- ============================ -->
-    <div class="simple-notification" id="schoolNotification">
-        <div class="notification-wrapper">
-            <div class="notification-bell">
-                <i class="fas fa-bullhorn"></i>
-            </div>
-            <div class="notification-message">
-                <span class="notification-tag">🎉 Holiday Notice</span>
-                School will remain closed on 25th December 2024 for Christmas celebrations.
-                <span class="notification-new">NEW</span>
-            </div>
-            <button class="notification-remove" id="closeNotification">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    </div>
-    <!-- ============================ -->
-    <!-- END NOTIFICATION -->
-    <!-- ============================ -->
-
-    <!-- Music Toggle -->
-    <!-- <div class="music-toggle">
-        <button id="musicBtn" class="music-btn">
-            <i class="fas fa-music"></i>
-        </button>
-        <audio id="bgMusic" loop muted>
-            <source src="https://assets.mixkit.co/music/preview/mixkit-happy-day-583.mp3" type="audio/mpeg">
-        </audio>
-    </div> -->
-
     <!-- Floating Contact Toggle -->
     <div class="floating-contact">
         <div class="contact-icons" id="contactIcons">
@@ -223,7 +425,7 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <h1>🎨 KIDD'S ZONE</h1>
+                <h1 style="color: black;">🎨 KIDD'S ZONE</h1>
                 <p class="tagline">A Unit of Complete Study</p>
             </div>
             
@@ -244,7 +446,7 @@
             </nav>
         </div>
     </header>
-
+    
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-content">
@@ -279,22 +481,114 @@
                     <a href="https://wa.me/+91070047 06917" target="_blank" class="btn btn-secondary">💬 WhatsApp Chat</a>
                 </div>
             </div>
-            <div class="hero-illustration">
-                <div class="floating-elements">
-                    <div class="floating-book">📚</div>
-                    <div class="floating-pencil">✏️</div>
-                    <div class="floating-apple">🍎</div>
-                    <div class="floating-star">⭐</div>
+            
+            <!-- NOTIFICATION MARQUEE -->
+            <div class="notification-marquee">
+                <div class="marquee-header">
+                    <div class="marquee-icon">
+                        📢
+                    </div>
+                    <h3 class="marquee-title">Important Announcements</h3>
                 </div>
-                <div class="school-illustration">
-                    <div class="school-building"></div>
-                    <div class="kid kid1">🧒</div>
-                    <div class="kid kid2">👧</div>
-                    <div class="tree"></div>
-                    <div class="sun"></div>
-                    <div class="cloud cloud1"></div>
-                    <div class="cloud cloud2"></div>
+                
+                <div class="marquee-content">
+                    <div class="marquee-track" id="marqueeTrack">
+                        <div class="notification-item">
+                            <span class="notification-icon">🎉</span>
+                            <span class="notification-text">Summer Vacation: School will remain closed from May 15 to June 15</span>
+                            <span class="notification-date">May 15 - Jun 15</span>
+                        </div>
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">📅</span>
+                            <span class="notification-text">Annual Sports Day: Join us on March 25 for exciting games and activities</span>
+                            <span class="notification-date">Mar 25</span>
+                        </div>
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">🎨</span>
+                            <span class="notification-text">Art Competition: Submit your entries by March 30 for the annual art contest</span>
+                            <span class="notification-date">Till Mar 30</span>
+                        </div>
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">🏫</span>
+                            <span class="notification-text">Admissions Open: Limited seats available for Nursery to Class 5</span>
+                            <span class="notification-date">Apply Now</span>
+                        </div>
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">📚</span>
+                            <span class="notification-text">Parent-Teacher Meeting: Scheduled for April 5, 2026</span>
+                            <span class="notification-date">Apr 5</span>
+                        </div>
+                        <!-- Duplicate items for seamless loop -->
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">🎉</span>
+                            <span class="notification-text">Summer Vacation: School will remain closed from May 15 to June 15</span>
+                            <span class="notification-date">May 15 - Jun 15</span>
+                        </div>
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">📅</span>
+                            <span class="notification-text">Annual Sports Day: Join us on March 25 for exciting games and activities</span>
+                            <span class="notification-date">Mar 25</span>
+                        </div>
+                    </div>
                 </div>
+                
+                <!-- Decorative elements -->
+                <div class="marquee-decoration marquee-balloon">🎈</div>
+                <div class="marquee-decoration marquee-star">⭐</div>
+            </div>
+            
+            <!-- Slider Title -->
+            <h2 class="slider-title"><span class="emoji">📸</span> Our School Gallery</h2>
+            
+            <!-- Image Slider (Replaces hero-illustration) -->
+            <div class="image-slider-container">
+                <div class="slider-wrapper">
+                    <div class="slider" id="slider">
+                        <!-- Slide 1 -->
+                        <div class="slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipMfY0K-QrPFpGht35c9BKpANov9cHpOKEjaN1V5=s1360-w1360-h1020-rw" alt="School Playground" class="slide-img">
+                        </div>
+                        
+                        <!-- Slide 2 -->
+                        <div class="slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipO-81xJbRnDi2FHZAm0jHKvfnxIoQNU0ohV-wUM=s1360-w1360-h1020-rw" alt="Classroom Activity" class="slide-img">
+                        </div>
+                        
+                        <!-- Slide 3 -->
+                        <div class="slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipOHJhmWZxvtWr63SoaksAOr_AXqXISewg1hT07G=s1360-w1360-h1020-rw" alt="Children Learning" class="slide-img">
+                        </div>
+                        
+                        <!-- Slide 4 -->
+                        <div class="slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipMQj9RSTLyQPn3pYdoZwI-w9P-Xcvw6UPNN77Nl=s1360-w1360-h1020-rw" alt="Sports Activities" class="slide-img">
+                        </div>
+                        
+                        <!-- Slide 5 -->
+                        <div class="slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNXL5poU0jlNxTdmS2DXXSTmVqAIh8X1r4nxyAe=s1360-w1360-h1020-rw" alt="Cultural Events" class="slide-img">
+                        </div>
+                    </div>
+                    
+                    <!-- Slider Controls -->
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="prevBtn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slider-btn" id="nextBtn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Dots Indicator -->
+                <div class="slider-dots" id="sliderDots"></div>
             </div>
         </div>
         
@@ -417,35 +711,149 @@
 
     <script src="script.js"></script>
     <script>
-        // Simple Notification JavaScript
+        // Image Slider JavaScript
         document.addEventListener('DOMContentLoaded', function() {
-            const notification = document.getElementById('schoolNotification');
-            const closeBtn = document.getElementById('closeNotification');
+            const slider = document.getElementById('slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const sliderDots = document.getElementById('sliderDots');
             
-            // Close notification when X is clicked
-            if (closeBtn) {
-                closeBtn.addEventListener('click', function() {
-                    notification.style.transform = 'translateY(-100%)';
-                    notification.style.opacity = '0';
-                    
-                    setTimeout(() => {
-                        notification.style.display = 'none';
-                        document.body.classList.remove('notification-visible');
-                    }, 500);
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            let slideInterval;
+            const slideSpeed = 4000; // Fixed speed: 4 seconds
+            
+            // Create dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                sliderDots.appendChild(dot);
+            });
+            
+            // Update slider position and active dot
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update dots
+                document.querySelectorAll('.dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
                 });
+                
+                // Reset auto-slide timer
+                resetAutoSlide();
             }
             
-            // Auto-hide "NEW" badge after 5 seconds
-            setTimeout(() => {
-                const newBadge = document.querySelector('.notification-new');
-                if (newBadge) {
-                    newBadge.style.animation = 'none';
-                    newBadge.style.opacity = '0.5';
-                }
-            }, 5000);
+            // Next slide function
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }
             
-            // Add class to body for spacing
-            document.body.classList.add('notification-visible');
+            // Previous slide function
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+            
+            // Go to specific slide
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlider();
+            }
+            
+            // Auto slide with fixed speed
+            function startAutoSlide() {
+                slideInterval = setInterval(nextSlide, slideSpeed);
+            }
+            
+            // Reset auto-slide timer
+            function resetAutoSlide() {
+                clearInterval(slideInterval);
+                startAutoSlide();
+            }
+            
+            // Event listeners for navigation
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            
+            // Pause auto-slide on hover
+            const sliderContainer = document.querySelector('.slider-wrapper');
+            sliderContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            sliderContainer.addEventListener('mouseleave', startAutoSlide);
+            
+            // Initialize
+            updateSlider();
+            startAutoSlide();
+            
+            // Touch swipe support for mobile
+            let startX = 0;
+            let endX = 0;
+            
+            sliderContainer.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                clearInterval(slideInterval);
+            });
+            
+            sliderContainer.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+                startAutoSlide();
+            });
+            
+            function handleSwipe() {
+                const threshold = 50;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > threshold) {
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            }
+            
+            // Responsive height adjustments
+            function adjustSliderHeight() {
+                const sliderWrapper = document.querySelector('.slider-wrapper');
+                if (window.innerWidth <= 768) {
+                    sliderWrapper.style.height = '350px';
+                } else if (window.innerWidth <= 480) {
+                    sliderWrapper.style.height = '280px';
+                } else {
+                    sliderWrapper.style.height = '500px';
+                }
+            }
+            
+            adjustSliderHeight();
+            window.addEventListener('resize', adjustSliderHeight);
+            
+            // Marquee functionality
+            const marqueeTrack = document.getElementById('marqueeTrack');
+            
+            // Pause marquee on hover
+            marqueeTrack.addEventListener('mouseenter', () => {
+                marqueeTrack.style.animationPlayState = 'paused';
+            });
+            
+            marqueeTrack.addEventListener('mouseleave', () => {
+                marqueeTrack.style.animationPlayState = 'running';
+            });
+            
+            // Adjust marquee animation speed based on screen size
+            function adjustMarqueeSpeed() {
+                if (window.innerWidth <= 480) {
+                    marqueeTrack.style.animationDuration = '100s';
+                } else {
+                    marqueeTrack.style.animationDuration = '150s';
+                }
+            }
+            
+            adjustMarqueeSpeed();
+            window.addEventListener('resize', adjustMarqueeSpeed);
         });
     </script>
 </body>
