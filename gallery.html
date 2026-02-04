@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - KIDD'S ZONE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
+    <style>
+        /* ===== GALLERY PAGE STYLES ===== */
+        .gallery-page {
+            padding: 100px 20px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            color: #2D3047;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to right, #FF6B8B, #FFB347);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 25px auto 0;
+            line-height: 1.6;
+        }
+        
+        /* Gallery Filters */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 12px 25px;
+            background: #f0f7ff;
+            border: 2px solid #c5e1ff;
+            border-radius: 30px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #2D3047;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover {
+            background: #e1f0ff;
+            transform: translateY(-3px);
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #FF6B8B, #FFB347);
+            color: white;
+            border-color: #FF6B8B;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.3);
+        }
+        
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .gallery-category {
+            font-size: 0.9rem;
+            background: #FF6B8B;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        
+        .gallery-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        /* Main Slider Modal */
+        .slider-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .slider-modal.active {
+            display: flex;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+        }
+        
+        .modal-slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .modal-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .modal-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .modal-slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .modal-slider-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-slider-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .modal-slider-info {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-slider-title {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .modal-slider-index {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: white;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 107, 139, 0.8);
+            transform: rotate(90deg);
+        }
+        
+        .modal-slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .modal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-dot.active {
+            background: #FF6B8B;
+            transform: scale(1.2);
+        }
+        
+        /* Video Section */
+        .video-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: #2D3047;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 5px;
+            background: linear-gradient(to right, #4A90E2, #6AC5C8);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .video-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .video-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 107, 139, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .play-btn:hover {
+            background: #FF6B8B;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-title {
+            font-size: 1.3rem;
+            color: #2D3047;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .video-desc {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+            
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .modal-slider-wrapper {
+                height: 60vh;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-page {
+                padding: 80px 15px 40px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .gallery-item {
+                height: 220px;
+            }
+            
+            .modal-slider-wrapper {
+                height: 50vh;
+            }
+            
+            .modal-slider-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .modal-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .gallery-filters {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .gallery-item {
+                height: 200px;
+            }
+            
+            .modal-slider-wrapper {
+                height: 40vh;
+            }
+            
+            .modal-slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .modal-slider-title {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Animation for items */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .gallery-item {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .gallery-item:nth-child(2) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.7s; }
+    </style>
+</head>
+<body>
+    <!-- Floating Contact Toggle -->
+    <div class="floating-contact">
+        <div class="contact-icons" id="contactIcons">
+            <a href="tel:+91070047 06917" class="contact-icon call" title="Call Now">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://wa.me/+91070047 06917" target="_blank" class="contact-icon whatsapp" title="WhatsApp Chat">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://instagram.com/yourpage" target="_blank" class="contact-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com/@yourchannel" target="_blank" class="contact-icon youtube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1 style="color: black;">🎨 KIDD'S ZONE</h1>
+                <p class="tagline">A Unit of Complete Study</p>
+            </div>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">🏠 Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">📚 About Us</a></li>
+                    <li class="nav-item"><a href="admission.html" class="nav-link">✏️ Admission</a></li>
+                    <li class="nav-item"><a href="payment.html" class="nav-link">💳 Pay Fees</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link active">📸 Gallery</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">📞 Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <button class="close-menu" id="closeMenu">&times;</button>
+            <ul class="mobile-nav">
+                <li><a href="index.html" class="mobile-nav-link">🏠 Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link">📚 About Us</a></li>
+                <li><a href="admission.html" class="mobile-nav-link">✏️ Admission</a></li>
+                <li><a href="payment.html" class="mobile-nav-link">💳 Pay Fees</a></li>
+                <li><a href="gallery.html" class="mobile-nav-link active">📸 Gallery</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">📞 Contact</a></li>
+            </ul>
+            <div class="mobile-contact">
+                <a href="tel:+91 070047 06917" class="mobile-call-btn">📞 Call Now</a>
+                <a href="https://wa.me/+91070047 06917" target="_blank" class="mobile-whatsapp-btn">💬 WhatsApp Chat</a>
+            </div>
+            <div class="mobile-decorations">
+                <div class="mobile-cloud"></div>
+                <div class="mobile-star"></div>
+                <div class="mobile-balloon"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Page Content -->
+    <main class="gallery-page">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">📸 Our School Gallery</h1>
+                <p class="page-subtitle">Explore moments of joy, learning, and creativity at KIDD'S ZONE. From classroom activities to special events, see how we make every day special for our students.</p>
+            </div>
+            
+            <!-- Gallery Filters -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="campus">School Campus</button>
+                <button class="filter-btn" data-filter="classroom">Classroom Activities</button>
+                <button class="filter-btn" data-filter="events">Events & Celebrations</button>
+                <button class="filter-btn" data-filter="sports">Sports & Games</button>
+                <button class="filter-btn" data-filter="art">Art & Creativity</button>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Campus Photos -->
+                <div class="gallery-item" data-category="campus">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipMfY0K-QrPFpGht35c9BKpANov9cHpOKEjaN1V5=s1360-w1360-h1020-rw" alt="School Playground">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Campus</span>
+                        <h3 class="gallery-title">Our Vibrant Playground</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="campus">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="School Building">
+                    <div class="gallery-overlay">
+       
