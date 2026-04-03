@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
+    <link rel="icon" type="image/x-icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
     <style>
         /* ===== NOTIFICATION MARQUEE STYLES ===== */
         .notification-marquee {
@@ -25,7 +29,7 @@
             overflow: hidden;
             z-index: 5;
         }
-        
+
         .marquee-header {
             display: flex;
             align-items: center;
@@ -33,7 +37,7 @@
             margin-bottom: 10px;
             gap: 10px;
         }
-        
+
         .marquee-icon {
             font-size: 1.8rem;
             background: #FF6B8B;
@@ -48,14 +52,14 @@
             box-shadow: 0 4px 8px rgba(255, 107, 139, 0.4);
             animation: pulse 2s infinite;
         }
-        
+
         .marquee-title {
             font-size: 1.4rem;
             font-weight: 700;
             color: #2D3047;
             margin: 0;
         }
-        
+
         .marquee-content {
             display: flex;
             align-items: center;
@@ -63,17 +67,17 @@
             position: relative;
             height: 40px;
         }
-        
+
         .marquee-track {
             display: flex;
             animation: marqueeScroll 25s linear infinite;
             white-space: nowrap;
         }
-        
+
         .marquee-track:hover {
             animation-play-state: paused;
         }
-        
+
         .notification-item {
             display: flex;
             align-items: center;
@@ -83,18 +87,18 @@
             white-space: nowrap;
             flex-shrink: 0;
         }
-        
+
         .notification-icon {
             margin-right: 12px;
             font-size: 1.2rem;
             color: #FF6B8B;
             flex-shrink: 0;
         }
-        
+
         .notification-text {
             font-weight: 500;
         }
-        
+
         .notification-date {
             background: #FF6B8B;
             color: white;
@@ -104,158 +108,168 @@
             margin-left: 15px;
             flex-shrink: 0;
         }
-        
+
         .marquee-divider {
             font-size: 1.5rem;
             color: #FFB6C1;
             margin: 0 20px;
             flex-shrink: 0;
         }
-        
+
         /* Decorative elements */
         .marquee-decoration {
             position: absolute;
             z-index: -1;
             opacity: 0.7;
         }
-        
+
         .marquee-balloon {
             top: -15px;
             right: 30px;
             font-size: 2rem;
             animation: float 6s ease-in-out infinite;
         }
-        
+
         .marquee-star {
             bottom: -10px;
             left: 30px;
             font-size: 1.8rem;
             animation: spin 8s linear infinite;
         }
-        
+
         /* Animations */
         @keyframes marqueeScroll {
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-100%);
             }
         }
-        
+
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
         }
-        
+
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-10px);
             }
         }
-        
+
         @keyframes spin {
             0% {
                 transform: rotate(0deg);
             }
+
             100% {
                 transform: rotate(360deg);
             }
         }
-        
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .notification-marquee {
                 padding: 12px 15px;
                 margin: 20px auto 25px;
             }
-            
+
             .marquee-icon {
                 width: 40px;
                 height: 40px;
                 font-size: 1.5rem;
             }
-            
+
             .marquee-title {
                 font-size: 1.2rem;
             }
-            
+
             .marquee-content {
                 height: 35px;
             }
-            
+
             .notification-item {
                 font-size: 1rem;
                 padding: 0 30px;
             }
-            
+
             .notification-date {
                 font-size: 0.8rem;
                 margin-left: 10px;
                 padding: 2px 8px;
             }
-            
+
             .marquee-divider {
                 margin: 0 15px;
                 font-size: 1.2rem;
             }
         }
-        
+
         @media (max-width: 480px) {
             .notification-marquee {
                 padding: 10px 12px;
                 margin: 15px auto 45px;
                 border-width: 2px;
             }
-            
+
             .marquee-header {
                 flex-direction: column;
                 gap: 8px;
                 text-align: center;
             }
-            
+
             .marquee-icon {
                 width: 35px;
                 height: 35px;
                 font-size: 1.3rem;
             }
-            
+
             .marquee-title {
                 font-size: 1rem;
             }
-            
+
             .marquee-content {
                 height: 30px;
             }
-            
+
             .notification-item {
                 font-size: 0.9rem;
                 padding: 0 20px;
             }
-            
+
             .notification-date {
                 font-size: 0.75rem;
                 margin-left: 8px;
                 padding: 2px 6px;
             }
-            
+
             .marquee-divider {
                 margin: 0 10px;
                 font-size: 1rem;
             }
-            
-            .marquee-balloon, .marquee-star {
-                display: none; /* Hide decorations on very small screens */
+
+            .marquee-balloon,
+            .marquee-star {
+                display: none;
+                /* Hide decorations on very small screens */
             }
         }
-        
+
         /* For very small screens, adjust animation speed */
         @media (max-width: 360px) {
             .marquee-track {
@@ -273,31 +287,31 @@
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
-        
+
         .slider-wrapper {
             position: relative;
             width: 100%;
             height: 500px;
             overflow: hidden;
         }
-        
+
         .slider {
             display: flex;
             transition: transform 0.5s ease-in-out;
             height: 100%;
         }
-        
+
         .slide {
             min-width: 100%;
             height: 100%;
         }
-        
+
         .slide-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .slider-controls {
             position: absolute;
             top: 50%;
@@ -308,7 +322,7 @@
             transform: translateY(-50%);
             z-index: 10;
         }
-        
+
         .slider-btn {
             background: rgba(255, 255, 255, 0.8);
             border: none;
@@ -324,12 +338,12 @@
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .slider-btn:hover {
             background: white;
             transform: scale(1.1);
         }
-        
+
         .slider-dots {
             display: flex;
             justify-content: center;
@@ -337,7 +351,7 @@
             margin-top: 20px;
             padding-bottom: 20px;
         }
-        
+
         .dot {
             width: 12px;
             height: 12px;
@@ -346,12 +360,12 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .dot.active {
             background: #FF6B8B;
             transform: scale(1.2);
         }
-        
+
         /* Slider Title */
         .slider-title {
             text-align: center;
@@ -362,54 +376,71 @@
             max-width: 900px;
             padding: 0 20px;
         }
-        
+
         .slider-title .emoji {
             margin-right: 12px;
         }
-        
+
         /* Responsive Styles */
         @media (max-width: 768px) {
+
             /* Slider adjustments for mobile */
             .slider-wrapper {
                 height: 350px;
             }
-            
+
             .slider-controls {
                 padding: 0 10px;
             }
-            
+
             .slider-btn {
                 width: 40px;
                 height: 40px;
                 font-size: 1.2rem;
             }
-            
+
             .slider-title {
                 font-size: 1.8rem;
                 margin: 20px auto 10px;
                 padding: 0 15px;
             }
         }
-        
+
+
         @media (max-width: 480px) {
             .slider-wrapper {
                 height: 280px;
             }
-            
+
             .slider-title {
                 font-size: 1.5rem;
+            }
+
+            /* Mobile-friendly CTA Kidd's Zone text */
+            .cta-title {
+                font-size: 1.6rem !important;
+                line-height: 1.4;
+            }
+
+            .cta-title .kidds-zone-colorful {
+                font-size: 1.8rem !important;
+            }
+
+            .cta-title .kidds-zone-colorful span {
+                -webkit-text-stroke: 1px white !important;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Floating Contact Toggle -->
     <div class="floating-contact">
         <div class="contact-icons" id="contactIcons">
-            <a href="tel:+91070047 06917" class="contact-icon call" title="Call Now">
+            <a href="tel:+917004706917" class="contact-icon call" title="Call Now">
                 <i class="fas fa-phone"></i>
             </a>
-            <a href="https://wa.me/+91070047 06917" target="_blank" class="contact-icon whatsapp" title="WhatsApp Chat">
+            <a href="https://wa.me/917004706917" target="_blank" class="contact-icon whatsapp" title="WhatsApp Chat">
                 <i class="fab fa-whatsapp"></i>
             </a>
             <a href="https://instagram.com/yourpage" target="_blank" class="contact-icon instagram">
@@ -425,10 +456,17 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <h1 style="color: black;">🎨 KIDD'S ZONE</h1>
+                <h1 style="color: black;">🎨 <span class="kidds-zone-colorful">
+                        <span class="letter-k">K</span><span class="letter-i">I</span><span
+                            class="letter-d1">D</span><span class="letter-d2">D</span><span
+                            class="letter-apo">'</span><span class="letter-s">S</span>
+                        &nbsp;
+                        <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                            class="letter-n">N</span><span class="letter-e">E</span>
+                    </span></h1>
                 <p class="tagline">A Unit of Complete Study</p>
             </div>
-            
+
             <nav class="navbar">
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link active">🏠 Home</a></li>
@@ -446,7 +484,7 @@
             </nav>
         </div>
     </header>
-    
+
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-content">
@@ -459,8 +497,8 @@
                 <li><a href="contact.html" class="mobile-nav-link">📞 Contact</a></li>
             </ul>
             <div class="mobile-contact">
-                <a href="tel:+91 070047 06917" class="mobile-call-btn">📞 Call Now</a>
-                <a href="https://wa.me/+91070047 06917" target="_blank" class="mobile-whatsapp-btn">💬 WhatsApp Chat</a>
+                <a href="tel:+917004706917" class="mobile-call-btn">📞 Call Now</a>
+                <a href="https://wa.me/917004706917" target="_blank" class="mobile-whatsapp-btn">💬 WhatsApp Chat</a>
             </div>
             <div class="mobile-decorations">
                 <div class="mobile-cloud"></div>
@@ -474,14 +512,17 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2 class="hero-title">Take a Step Forward to Your Child's <span class="highlight">Bright Future</span></h2>
-                <p class="hero-subtitle">Where learning meets fun! 🎈 A safe and nurturing environment for children from Pre-Nursery to Class 5.</p>
+                <h2 class="hero-title">Take a Step Forward to Your Child's <span class="highlight">Bright Future</span>
+                </h2>
+                <p class="hero-subtitle">Where learning meets fun! 🎈 A safe and nurturing environment for children from
+                    Pre-Nursery to Class 5.</p>
                 <div class="hero-buttons">
-                    <a href="tel:+91070047 06917" class="btn btn-primary">📞 Call Now</a>
-                    <a href="https://wa.me/+91070047 06917" target="_blank" class="btn btn-secondary">💬 WhatsApp Chat</a>
+                    <a href="tel:+917004706917" class="btn btn-primary">📞 Call Now</a>
+                    <a href="https://wa.me/917004706917" target="_blank" class="btn btn-secondary">💬 WhatsApp
+                        Chat</a>
                 </div>
             </div>
-            
+
             <!-- NOTIFICATION MARQUEE -->
             <div class="notification-marquee">
                 <div class="marquee-header">
@@ -490,30 +531,34 @@
                     </div>
                     <h3 class="marquee-title">Important Announcements</h3>
                 </div>
-                
+
                 <div class="marquee-content">
                     <div class="marquee-track" id="marqueeTrack">
                         <div class="notification-item">
                             <span class="notification-icon">🎉</span>
-                            <span class="notification-text">Summer Vacation: School will remain closed from May 15 to June 15</span>
+                            <span class="notification-text">Summer Vacation: School will remain closed from May 15 to
+                                June 15</span>
                             <span class="notification-date">May 15 - Jun 15</span>
                         </div>
                         <div class="marquee-divider">•</div>
                         <div class="notification-item">
                             <span class="notification-icon">📅</span>
-                            <span class="notification-text">Annual Sports Day: Join us on March 25 for exciting games and activities</span>
+                            <span class="notification-text">Annual Sports Day: Join us on March 25 for exciting games
+                                and activities</span>
                             <span class="notification-date">Mar 25</span>
                         </div>
                         <div class="marquee-divider">•</div>
                         <div class="notification-item">
                             <span class="notification-icon">🎨</span>
-                            <span class="notification-text">Art Competition: Submit your entries by March 30 for the annual art contest</span>
+                            <span class="notification-text">Art Competition: Submit your entries by March 30 for the
+                                annual art contest</span>
                             <span class="notification-date">Till Mar 30</span>
                         </div>
                         <div class="marquee-divider">•</div>
                         <div class="notification-item">
                             <span class="notification-icon">🏫</span>
-                            <span class="notification-text">Admissions Open: Limited seats available for Nursery to Class 5</span>
+                            <span class="notification-text">Admissions Open: Limited seats available for Nursery to
+                                Class 5</span>
                             <span class="notification-date">Apply Now</span>
                         </div>
                         <div class="marquee-divider">•</div>
@@ -526,56 +571,63 @@
                         <div class="marquee-divider">•</div>
                         <div class="notification-item">
                             <span class="notification-icon">🎉</span>
-                            <span class="notification-text">Summer Vacation: School will remain closed from May 15 to June 15</span>
+                            <span class="notification-text">Summer Vacation: School will remain closed from May 15 to
+                                June 15</span>
                             <span class="notification-date">May 15 - Jun 15</span>
                         </div>
                         <div class="marquee-divider">•</div>
                         <div class="notification-item">
                             <span class="notification-icon">📅</span>
-                            <span class="notification-text">Annual Sports Day: Join us on March 25 for exciting games and activities</span>
+                            <span class="notification-text">Annual Sports Day: Join us on March 25 for exciting games
+                                and activities</span>
                             <span class="notification-date">Mar 25</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Decorative elements -->
                 <div class="marquee-decoration marquee-balloon">🎈</div>
                 <div class="marquee-decoration marquee-star">⭐</div>
             </div>
-            
+
             <!-- Slider Title -->
             <h2 class="slider-title"><span class="emoji">📸</span> Our School Gallery</h2>
-            
+
             <!-- Image Slider (Replaces hero-illustration) -->
             <div class="image-slider-container">
                 <div class="slider-wrapper">
                     <div class="slider" id="slider">
                         <!-- Slide 1 -->
                         <div class="slide">
-                            <img src="https://lh3.googleusercontent.com/p/AF1QipMfY0K-QrPFpGht35c9BKpANov9cHpOKEjaN1V5=s1360-w1360-h1020-rw" alt="School Playground" class="slide-img">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipMfY0K-QrPFpGht35c9BKpANov9cHpOKEjaN1V5=s1360-w1360-h1020-rw"
+                                alt="School Playground" class="slide-img">
                         </div>
-                        
+
                         <!-- Slide 2 -->
                         <div class="slide">
-                            <img src="https://lh3.googleusercontent.com/p/AF1QipO-81xJbRnDi2FHZAm0jHKvfnxIoQNU0ohV-wUM=s1360-w1360-h1020-rw" alt="Classroom Activity" class="slide-img">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipO-81xJbRnDi2FHZAm0jHKvfnxIoQNU0ohV-wUM=s1360-w1360-h1020-rw"
+                                alt="Classroom Activity" class="slide-img">
                         </div>
-                        
+
                         <!-- Slide 3 -->
                         <div class="slide">
-                            <img src="https://lh3.googleusercontent.com/p/AF1QipOHJhmWZxvtWr63SoaksAOr_AXqXISewg1hT07G=s1360-w1360-h1020-rw" alt="Children Learning" class="slide-img">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipOHJhmWZxvtWr63SoaksAOr_AXqXISewg1hT07G=s1360-w1360-h1020-rw"
+                                alt="Children Learning" class="slide-img">
                         </div>
-                        
+
                         <!-- Slide 4 -->
                         <div class="slide">
-                            <img src="https://lh3.googleusercontent.com/p/AF1QipMQj9RSTLyQPn3pYdoZwI-w9P-Xcvw6UPNN77Nl=s1360-w1360-h1020-rw" alt="Sports Activities" class="slide-img">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipMQj9RSTLyQPn3pYdoZwI-w9P-Xcvw6UPNN77Nl=s1360-w1360-h1020-rw"
+                                alt="Sports Activities" class="slide-img">
                         </div>
-                        
+
                         <!-- Slide 5 -->
                         <div class="slide">
-                            <img src="https://lh3.googleusercontent.com/p/AF1QipNXL5poU0jlNxTdmS2DXXSTmVqAIh8X1r4nxyAe=s1360-w1360-h1020-rw" alt="Cultural Events" class="slide-img">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNXL5poU0jlNxTdmS2DXXSTmVqAIh8X1r4nxyAe=s1360-w1360-h1020-rw"
+                                alt="Cultural Events" class="slide-img">
                         </div>
                     </div>
-                    
+
                     <!-- Slider Controls -->
                     <div class="slider-controls">
                         <button class="slider-btn" id="prevBtn">
@@ -586,12 +638,12 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Dots Indicator -->
                 <div class="slider-dots" id="sliderDots"></div>
             </div>
         </div>
-        
+
         <!-- Animated Background Elements -->
         <div class="bg-element bg-balloon1">🎈</div>
         <div class="bg-element bg-balloon2">🎈</div>
@@ -611,7 +663,8 @@
                         <i class="fas fa-laptop-house"></i>
                     </div>
                     <h3 class="feature-title">Smart Classes</h3>
-                    <p class="feature-description">Interactive digital learning with animated lessons and educational games.</p>
+                    <p class="feature-description">Interactive digital learning with animated lessons and educational
+                        games.</p>
                     <div class="feature-emoji">📱</div>
                 </div>
                 <div class="feature-card">
@@ -619,7 +672,8 @@
                         <i class="fas fa-video"></i>
                     </div>
                     <h3 class="feature-title">CCTV Surveillance</h3>
-                    <p class="feature-description">24/7 security monitoring to ensure your child's safety at all times.</p>
+                    <p class="feature-description">24/7 security monitoring to ensure your child's safety at all times.
+                    </p>
                     <div class="feature-emoji">👁️</div>
                 </div>
                 <div class="feature-card">
@@ -627,7 +681,8 @@
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
                     <h3 class="feature-title">Projector Based Learning</h3>
-                    <p class="feature-description">Visual and engaging lessons with projectors for better understanding.</p>
+                    <p class="feature-description">Visual and engaging lessons with projectors for better understanding.
+                    </p>
                     <div class="feature-emoji">📽️</div>
                 </div>
             </div>
@@ -640,19 +695,19 @@
             <h2 class="section-title">Our School in Numbers 📊</h2>
             <div class="counters-grid">
                 <div class="counter-item">
-                    <div class="counter-number" data-target="850">0</div>
+                    <div class="counter-number" data-target="300">0</div>
                     <div class="counter-label">Happy Kids 😊</div>
                 </div>
                 <div class="counter-item">
-                    <div class="counter-number" data-target="12">0</div>
+                    <div class="counter-number" data-target="5">0</div>
                     <div class="counter-label">Classes 📚</div>
                 </div>
                 <div class="counter-item">
-                    <div class="counter-number" data-target="45">0</div>
+                    <div class="counter-number" data-target="8">0</div>
                     <div class="counter-label">Teachers 👩‍🏫</div>
                 </div>
                 <div class="counter-item">
-                    <div class="counter-number" data-target="15">0</div>
+                    <div class="counter-number" data-target="4">0</div>
                     <div class="counter-label">Years Experience 🎓</div>
                 </div>
             </div>
@@ -663,8 +718,16 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Ready to Join KIDD'S ZONE? 🎉</h2>
-                <p class="cta-text">Give your child the best start in their educational journey. Enroll now for the upcoming session!</p>
+                <h2 class="cta-title">Ready to Join <span class="kidds-zone-colorful">
+                        <span class="letter-k">K</span><span class="letter-i">I</span><span
+                            class="letter-d1">D</span><span class="letter-d2">D</span><span
+                            class="letter-apo">'</span><span class="letter-s">S</span>
+                        &nbsp;
+                        <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                            class="letter-n">N</span><span class="letter-e">E</span>
+                    </span>? 🎉</h2>
+                <p class="cta-text">Give your child the best start in their educational journey. Enroll now for the
+                    upcoming session!</p>
                 <div class="cta-buttons">
                     <a href="admission.html" class="btn btn-primary btn-large">✏️ Admission Form</a>
                     <a href="contact.html" class="btn btn-secondary btn-large">📞 Schedule a Visit</a>
@@ -683,7 +746,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h2>🎨 KIDD'S ZONE</h2>
+                    <h2>🎨 <span class="kidds-zone-colorful">
+                            <span class="letter-k">K</span><span class="letter-i">I</span><span
+                                class="letter-d1">D</span><span class="letter-d2">D</span><span
+                                class="letter-apo">'</span><span class="letter-s">S</span>
+                            &nbsp;
+                            <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                                class="letter-n">N</span><span class="letter-e">E</span>
+                        </span></h2>
                     <p>A Unit of Complete Study</p>
                     <p>Pre-Nursery to Class 5</p>
                 </div>
@@ -704,7 +774,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 KIDD'S ZONE - A Unit of Complete Study. All rights reserved. 🧸</p>
+                <p>&copy; 2026 <span class="kidds-zone-colorful">
+                        <span class="letter-k">K</span><span class="letter-i">I</span><span
+                            class="letter-d1">D</span><span class="letter-d2">D</span><span
+                            class="letter-apo">'</span><span class="letter-s">S</span>
+                        &nbsp;
+                        <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                            class="letter-n">N</span><span class="letter-e">E</span>
+                    </span> - A Unit of Complete Study. All rights reserved. 🧸</p>
             </div>
         </div>
     </footer>
@@ -712,18 +789,18 @@
     <script src="script.js"></script>
     <script>
         // Image Slider JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const slider = document.getElementById('slider');
             const slides = document.querySelectorAll('.slide');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const sliderDots = document.getElementById('sliderDots');
-            
+
             let currentSlide = 0;
             const slideCount = slides.length;
             let slideInterval;
             const slideSpeed = 4000; // Fixed speed: 4 seconds
-            
+
             // Create dots
             slides.forEach((_, index) => {
                 const dot = document.createElement('div');
@@ -732,81 +809,81 @@
                 dot.addEventListener('click', () => goToSlide(index));
                 sliderDots.appendChild(dot);
             });
-            
+
             // Update slider position and active dot
             function updateSlider() {
                 slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-                
+
                 // Update dots
                 document.querySelectorAll('.dot').forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentSlide);
                 });
-                
+
                 // Reset auto-slide timer
                 resetAutoSlide();
             }
-            
+
             // Next slide function
             function nextSlide() {
                 currentSlide = (currentSlide + 1) % slideCount;
                 updateSlider();
             }
-            
+
             // Previous slide function
             function prevSlide() {
                 currentSlide = (currentSlide - 1 + slideCount) % slideCount;
                 updateSlider();
             }
-            
+
             // Go to specific slide
             function goToSlide(index) {
                 currentSlide = index;
                 updateSlider();
             }
-            
+
             // Auto slide with fixed speed
             function startAutoSlide() {
                 slideInterval = setInterval(nextSlide, slideSpeed);
             }
-            
+
             // Reset auto-slide timer
             function resetAutoSlide() {
                 clearInterval(slideInterval);
                 startAutoSlide();
             }
-            
+
             // Event listeners for navigation
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
-            
+
             // Pause auto-slide on hover
             const sliderContainer = document.querySelector('.slider-wrapper');
             sliderContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
             sliderContainer.addEventListener('mouseleave', startAutoSlide);
-            
+
             // Initialize
             updateSlider();
             startAutoSlide();
-            
+
             // Touch swipe support for mobile
             let startX = 0;
             let endX = 0;
-            
+
             sliderContainer.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
                 clearInterval(slideInterval);
             });
-            
+
             sliderContainer.addEventListener('touchend', (e) => {
                 endX = e.changedTouches[0].clientX;
                 handleSwipe();
                 startAutoSlide();
             });
-            
+
             function handleSwipe() {
                 const threshold = 50;
                 const diff = startX - endX;
-                
+
                 if (Math.abs(diff) > threshold) {
                     if (diff > 0) {
                         nextSlide();
@@ -815,7 +892,7 @@
                     }
                 }
             }
-            
+
             // Responsive height adjustments
             function adjustSliderHeight() {
                 const sliderWrapper = document.querySelector('.slider-wrapper');
@@ -827,22 +904,22 @@
                     sliderWrapper.style.height = '500px';
                 }
             }
-            
+
             adjustSliderHeight();
             window.addEventListener('resize', adjustSliderHeight);
-            
+
             // Marquee functionality
             const marqueeTrack = document.getElementById('marqueeTrack');
-            
+
             // Pause marquee on hover
             marqueeTrack.addEventListener('mouseenter', () => {
                 marqueeTrack.style.animationPlayState = 'paused';
             });
-            
+
             marqueeTrack.addEventListener('mouseleave', () => {
                 marqueeTrack.style.animationPlayState = 'running';
             });
-            
+
             // Adjust marquee animation speed based on screen size
             function adjustMarqueeSpeed() {
                 if (window.innerWidth <= 480) {
@@ -851,10 +928,11 @@
                     marqueeTrack.style.animationDuration = '150s';
                 }
             }
-            
+
             adjustMarqueeSpeed();
             window.addEventListener('resize', adjustMarqueeSpeed);
         });
     </script>
 </body>
+
 </html>
