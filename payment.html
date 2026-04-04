@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -7,9 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
+    <link rel="icon" type="image/x-icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
     <style>
         .qr-section-only {
             padding: 120px 20px 80px;
@@ -28,7 +32,7 @@
             background: white;
             padding: 20px;
             border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             margin: 0 auto;
         }
@@ -51,7 +55,7 @@
             font-weight: 700;
             color: var(--dark);
         }
-        
+
         .qr-subtext {
             margin-top: 10px;
             color: #666;
@@ -66,15 +70,18 @@
             .qr-section-only {
                 padding: 100px 15px 60px;
             }
+
             .qr-caption {
                 font-size: 1.5rem;
             }
+
             .qr-subtext {
                 font-size: 1rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Floating Contact Toggle -->
     <div class="floating-contact">
@@ -91,30 +98,47 @@
     <!-- Header & Navigation -->
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <h1 style="color: black;">🎨 <span class="kidds-zone-colorful">
-                    <span class="letter-k">K</span><span class="letter-i">I</span><span class="letter-d1">D</span><span class="letter-d2">D</span><span class="letter-apo">'</span><span class="letter-s">S</span>
-                    &nbsp;
-                    <span class="letter-z">Z</span><span class="letter-o">O</span><span class="letter-n">N</span><span class="letter-e">E</span>
-                </span></h1>
-                <p class="tagline">A Unit of Complete Study</p>
+
+            <!-- LOGO + TEXT -->
+            <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+
+                <!-- Logo Image (Left Side) -->
+                <img src="/logo.jpeg" alt="Logo" style="width:50px; height:50px; object-fit:contain;">
+
+                <!-- Existing Text (Same as it is) -->
+                <div>
+                    <h1 style="color: black;">
+                        <span class="kidds-zone-colorful">
+                            <span class="letter-k">K</span><span class="letter-i">I</span><span
+                                class="letter-d1">D</span><span class="letter-d2">D</span><span
+                                class="letter-apo">'</span><span class="letter-s">S</span>
+                            &nbsp;
+                            <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                                class="letter-n">N</span><span class="letter-e">E</span>
+                        </span>
+                    </h1>
+                    <p class="tagline">A Unit of Complete Study</p>
+                </div>
+
             </div>
-            
+
+            <!-- NAVBAR -->
             <nav class="navbar">
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">🏠 Home</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link active">🏠 Home</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">📚 About Us</a></li>
                     <li class="nav-item"><a href="admission.html" class="nav-link">✏️ Admission</a></li>
-                    <li class="nav-item"><a href="payment.html" class="nav-link active">💳 Pay Fees</a></li>
+                    <li class="nav-item"><a href="payment.html" class="nav-link">💳 Pay Fees</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">📞 Contact</a></li>
                 </ul>
+
                 <div class="hamburger" id="hamburger">
-                    <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </div>
             </nav>
+
         </div>
     </header>
 
@@ -140,7 +164,7 @@
     <main class="qr-section-only">
         <div class="container">
             <div class="qr-img-container">
-                <img src="https://i.ibb.co/RTkCFksw/IMG-20260402-WA0016.jpg" alt="KIDD'S ZONE Payment QR" class="qr-image">
+                <img src="qrcode.jpeg" alt="KIDD'S ZONE Payment QR" class="qr-image">
             </div>
             <h2 class="qr-caption">Scan & Pay School Fees</h2>
             <p class="qr-subtext">Open any UPI app (G-Pay, PhonePe, Paytm) to scan and complete the payment safely.</p>
@@ -153,10 +177,13 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <h2>🎨 <span class="kidds-zone-colorful">
-                        <span class="letter-k">K</span><span class="letter-i">I</span><span class="letter-d1">D</span><span class="letter-d2">D</span><span class="letter-apo">'</span><span class="letter-s">S</span>
-                        &nbsp;
-                        <span class="letter-z">Z</span><span class="letter-o">O</span><span class="letter-n">N</span><span class="letter-e">E</span>
-                    </span></h2>
+                            <span class="letter-k">K</span><span class="letter-i">I</span><span
+                                class="letter-d1">D</span><span class="letter-d2">D</span><span
+                                class="letter-apo">'</span><span class="letter-s">S</span>
+                            &nbsp;
+                            <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                                class="letter-n">N</span><span class="letter-e">E</span>
+                        </span></h2>
                     <p>A Unit of Complete Study</p>
                 </div>
                 <div class="footer-links">
@@ -185,4 +212,5 @@
     <!-- Scripts -->
     <script src="script.js"></script>
 </body>
+
 </html>
