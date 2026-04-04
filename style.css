@@ -192,17 +192,31 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: var(--shadow-sm);
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     padding: 15px 0;
     transition: all var(--transition-fast);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header.scrolled {
     padding: 10px 0;
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: var(--shadow-md);
+    background-color: rgba(0, 0, 0, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+.logo-img {
+    height: 75px;
+    width: auto;
+    object-fit: contain;
+    transition: transform var(--transition-fast);
+    display: block;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 .header .container {
@@ -290,7 +304,7 @@ p {
 
 .tagline {
     font-size: 0.9rem;
-    color: var(--dark);
+    color: white;
     opacity: 0.8;
     margin-bottom: 0;
 }
@@ -303,7 +317,7 @@ p {
 
 .nav-link {
     text-decoration: none;
-    color: var(--dark);
+    color: #fff;
     font-weight: 600;
     font-size: 1.1rem;
     padding: 8px 0;
@@ -349,7 +363,7 @@ p {
 .bar {
     width: 25px;
     height: 3px;
-    background-color: var(--dark);
+    background-color: #fff;
     border-radius: 2px;
     transition: all var(--transition-fast);
 }
@@ -842,6 +856,11 @@ p {
     transition: transform var(--transition-fast);
 }
 
+#logo {
+    height: 50px;
+    width: 50px;
+}
+
 .counter-item:hover {
     transform: scale(1.05);
 }
@@ -1102,6 +1121,10 @@ p {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 50px;
+}
+
+#studys {
+    color: white;
 }
 
 .reason-card {
@@ -2095,8 +2118,13 @@ p {
         font-size: "12px"
     }
 
+
     #zone {
         font-size: "1px"
+    }
+
+    .kidds-zone-colorful {
+        font-size: 1.5rem;
     }
 
     .hero-title {
