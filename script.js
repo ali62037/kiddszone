@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         downloadFormBtn.addEventListener('click', function(e) {
             
             // Normal redirect
-            window.location.href = "https://drive.google.com/uc?export=download&id=1AHxFuH4Sg0lbc4potypkG1AFuv9X5FZZ";
+            window.location.href = "https://drive.google.com/uc?export=download&id=1Q_HvZG7COgrKA9vabKFTxf2AUfdNP_qH";
             e.preventDefault();
             // In a real implementation, this would link to an actual PDF
             // For demo purposes, we'll show an alert
