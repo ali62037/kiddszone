@@ -455,18 +455,31 @@
     <!-- Header & Navigation -->
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <h1 style="color: black;">🎨 <span class="kidds-zone-colorful">
-                        <span class="letter-k">K</span><span class="letter-i">I</span><span
-                            class="letter-d1">D</span><span class="letter-d2">D</span><span
-                            class="letter-apo">'</span><span class="letter-s">S</span>
-                        &nbsp;
-                        <span class="letter-z">Z</span><span class="letter-o">O</span><span
-                            class="letter-n">N</span><span class="letter-e">E</span>
-                    </span></h1>
-                <p class="tagline">A Unit of Complete Study</p>
+
+            <!-- LOGO + TEXT -->
+            <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+
+                <!-- Logo Image (Left Side) -->
+                <img src="/logo.jpeg" alt="Logo" style="width:50px; height:50px; object-fit:contain;">
+
+                <!-- Existing Text (Same as it is) -->
+                <div>
+                    <h1 style="color: black;">
+                        <span class="kidds-zone-colorful">
+                            <span class="letter-k">K</span><span class="letter-i">I</span><span
+                                class="letter-d1">D</span><span class="letter-d2">D</span><span
+                                class="letter-apo">'</span><span class="letter-s">S</span>
+                            &nbsp;
+                            <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                                class="letter-n">N</span><span class="letter-e">E</span>
+                        </span>
+                    </h1>
+                    <p class="tagline">A Unit of Complete Study</p>
+                </div>
+
             </div>
 
+            <!-- NAVBAR -->
             <nav class="navbar">
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link active">🏠 Home</a></li>
@@ -475,16 +488,16 @@
                     <li class="nav-item"><a href="payment.html" class="nav-link">💳 Pay Fees</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">📞 Contact</a></li>
                 </ul>
+
                 <div class="hamburger" id="hamburger">
-                    <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </div>
             </nav>
+
         </div>
     </header>
-
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-content">
@@ -781,7 +794,7 @@
                         &nbsp;
                         <span class="letter-z">Z</span><span class="letter-o">O</span><span
                             class="letter-n">N</span><span class="letter-e">E</span>
-                    </span> - A Unit of Complete Study. All rights reserved. 🧸</p>
+                    </span id="studys"> - A Unit of Complete Study. All rights reserved. 🧸</p>
             </div>
         </div>
     </footer>
