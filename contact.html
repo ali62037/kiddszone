@@ -7,6 +7,8 @@
     <title>Contact Us - KIDD'S ZONE</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&display=swap"
@@ -207,7 +209,7 @@
                     <h2>Send us a Message 💌</h2>
                     <p>Have questions? Fill out the form below and we'll get back to you soon.</p>
 
-                    <form id="contactForm" class="contact-form">
+                    <form id="contactForm" class="contact-form" >
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -227,14 +229,10 @@
                             <label for="childAge">Child's Age</label>
                             <select id="childAge" name="childAge">
                                 <option value="">Select age group</option>
-                                <option value="2-3">2-3 years (Pre-Nursery)</option>
-                                <option value="3-4">3-4 years (Nursery)</option>
-                                <option value="4-5">4-5 years (Kindergarten)</option>
-                                <option value="5-6">5-6 years (Class 1)</option>
-                                <option value="6-7">6-7 years (Class 2)</option>
-                                <option value="7-8">7-8 years (Class 3)</option>
-                                <option value="8-9">8-9 years (Class 4)</option>
-                                <option value="9-10">9-10 years (Class 5)</option>
+                                <option value="2-3">2-3 years (Baby Pre-Nursery)</option>
+                                <option value="2-3">3-4 years (Pre-Nursery)</option>
+                                <option value="3-4">4-5 years (Nursery)</option>
+                                <option value="4-5">5-6 years (KG)</option>
                             </select>
                             <div class="form-icon">👶</div>
                         </div>
@@ -401,6 +399,30 @@ Saturday: 9:00 AM - 12:00 PM</p>
         </div>
     </footer>
 
+    <script>
+(function(){
+    emailjs.init("fr4s5MkXOYx8AAtqY"); // 👈 yaha apna Public Key daal
+})();
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.send("service_r3mtt7t", "template_g1h0awo", {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        childAge: document.getElementById("childAge").value,
+        message: document.getElementById("message").value
+    })
+    .then(function(response) {
+        alert("Message Sent Successfully 🚀");
+        document.getElementById("contactForm").reset();
+    }, function(error) {
+        console.log(error);
+        alert("Failed ❌ Check console");
+    });
+});
+</script>
     <script src="script.js"></script>
 </body>
 
