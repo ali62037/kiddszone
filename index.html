@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KIDD'S ZONE - Kids School</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,313 +15,7 @@
     <link rel="icon" type="image/x-icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧸</text></svg>">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-            background: #fff9fc;
-        }
-
-        :root {
-            --primary: #FF6B8B;
-            --secondary: #FFB347;
-            --dark: #2D3047;
-            --light: #F9F3F0;
-            --font-heading: 'Nunito', 'Comic Neue', sans-serif;
-        }
-
-        /* Floating Contact */
-        .floating-contact {
-            position: fixed;
-            bottom: 30px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .contact-icons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .contact-icon {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            color: white;
-            text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-icon:hover {
-            transform: scale(1.1);
-        }
-
-        .call {
-            background: #25D366;
-        }
-
-        .whatsapp {
-            background: #075E54;
-        }
-
-        .instagram {
-            background: linear-gradient(45deg, #f09433, #d62976);
-        }
-
-        .youtube {
-            background: #FF0000;
-        }
-
-        /* Header */
-        .header {
-            background: white;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 10px 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo img {
-            width: 55px;
-            height: 55px;
-            object-fit: contain;
-        }
-
-        .logo h1 {
-            font-size: 1.8rem;
-            font-family: var(--font-heading);
-            margin: 0;
-            line-height: 1.2;
-        }
-
-        .tagline {
-            font-size: 0.8rem;
-            color: #666;
-            letter-spacing: 1px;
-        }
-
-        /* Colorful text */
-        .kidds-zone-colorful .letter-k { color: #FF6B6B; }
-        .kidds-zone-colorful .letter-i { color: #4ECDC4; }
-        .kidds-zone-colorful .letter-d1 { color: #FFE66D; }
-        .kidds-zone-colorful .letter-d2 { color: #FF9F4A; }
-        .kidds-zone-colorful .letter-apo { color: #A8E6CF; }
-        .kidds-zone-colorful .letter-s { color: #FF6B6B; }
-        .kidds-zone-colorful .letter-z { color: #FF8C94; }
-        .kidds-zone-colorful .letter-o { color: #6C5B7B; }
-        .kidds-zone-colorful .letter-n { color: #F08A5D; }
-        .kidds-zone-colorful .letter-e { color: #B83B5E; }
-
-        /* Navigation */
-        .navbar ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            font-weight: 600;
-            color: var(--dark);
-            transition: 0.3s;
-            font-size: 1rem;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-
-        .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            background: var(--dark);
-            transition: 0.3s;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 85%;
-            max-width: 350px;
-            height: 100%;
-            background: white;
-            z-index: 1000;
-            transition: 0.4s;
-            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu-content {
-            padding: 30px 20px;
-            position: relative;
-            height: 100%;
-        }
-
-        .close-menu {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--dark);
-        }
-
-        .mobile-nav {
-            list-style: none;
-            margin-top: 50px;
-        }
-
-        .mobile-nav li {
-            margin: 20px 0;
-        }
-
-        .mobile-nav-link {
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .mobile-contact {
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .mobile-call-btn, .mobile-whatsapp-btn {
-            text-align: center;
-            padding: 12px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .mobile-call-btn {
-            background: var(--primary);
-            color: white;
-        }
-
-        .mobile-whatsapp-btn {
-            background: #25D366;
-            color: white;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 100%);
-            padding: 40px 0 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-family: var(--font-heading);
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-
-        .highlight {
-            color: var(--primary);
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 25px;
-            color: #555;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            background: #ff5a7c;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Notification Marquee */
+        /* ===== NOTIFICATION MARQUEE STYLES ===== */
         .notification-marquee {
             width: 90%;
             max-width: 900px;
@@ -397,6 +92,11 @@
             margin-right: 12px;
             font-size: 1.2rem;
             color: #FF6B8B;
+            flex-shrink: 0;
+        }
+
+        .notification-text {
+            font-weight: 500;
         }
 
         .notification-date {
@@ -406,31 +106,178 @@
             border-radius: 20px;
             font-size: 0.85rem;
             margin-left: 15px;
+            flex-shrink: 0;
         }
 
         .marquee-divider {
             font-size: 1.5rem;
             color: #FFB6C1;
             margin: 0 20px;
+            flex-shrink: 0;
         }
 
+        /* Decorative elements */
         .marquee-decoration {
             position: absolute;
             z-index: -1;
             opacity: 0.7;
         }
-        .marquee-balloon { top: -15px; right: 30px; font-size: 2rem; animation: float 6s ease-in-out infinite; }
-        .marquee-star { bottom: -10px; left: 30px; font-size: 1.8rem; animation: spin 8s linear infinite; }
 
-        @keyframes marqueeScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+        .marquee-balloon {
+            top: -15px;
+            right: 30px;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
         }
-        @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* Image Slider (Manual only) */
+        .marquee-star {
+            bottom: -10px;
+            left: 30px;
+            font-size: 1.8rem;
+            animation: spin 8s linear infinite;
+        }
+
+        /* Animations */
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .notification-marquee {
+                padding: 12px 15px;
+                margin: 20px auto 25px;
+            }
+
+            .marquee-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            .marquee-title {
+                font-size: 1.2rem;
+            }
+
+            .marquee-content {
+                height: 35px;
+            }
+
+            .notification-item {
+                font-size: 1rem;
+                padding: 0 30px;
+            }
+
+            .notification-date {
+                font-size: 0.8rem;
+                margin-left: 10px;
+                padding: 2px 8px;
+            }
+
+            .marquee-divider {
+                margin: 0 15px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .notification-marquee {
+                padding: 10px 12px;
+                margin: 15px auto 45px;
+                border-width: 2px;
+            }
+
+            .marquee-header {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .marquee-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1.3rem;
+            }
+
+            .marquee-title {
+                font-size: 1rem;
+            }
+
+            .marquee-content {
+                height: 30px;
+            }
+
+            .notification-item {
+                font-size: 0.9rem;
+                padding: 0 20px;
+            }
+
+            .notification-date {
+                font-size: 0.75rem;
+                margin-left: 8px;
+                padding: 2px 6px;
+            }
+
+            .marquee-divider {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+
+            .marquee-balloon,
+            .marquee-star {
+                display: none;
+                /* Hide decorations on very small screens */
+            }
+        }
+
+        /* For very small screens, adjust animation speed */
+        @media (max-width: 360px) {
+            .marquee-track {
+                animation: marqueeScroll 20s linear infinite;
+            }
+        }
+
+        /* ===== IMAGE SLIDER STYLES ===== */
         .image-slider-container {
             width: 100%;
             max-width: 900px;
@@ -440,26 +287,31 @@
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
+
         .slider-wrapper {
             position: relative;
             width: 100%;
             height: 500px;
             overflow: hidden;
         }
+
         .slider {
             display: flex;
             transition: transform 0.5s ease-in-out;
             height: 100%;
         }
+
         .slide {
             min-width: 100%;
             height: 100%;
         }
+
         .slide-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         .slider-controls {
             position: absolute;
             top: 50%;
@@ -470,6 +322,7 @@
             transform: translateY(-50%);
             z-index: 10;
         }
+
         .slider-btn {
             background: rgba(255, 255, 255, 0.8);
             border: none;
@@ -485,10 +338,12 @@
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
+
         .slider-btn:hover {
             background: white;
             transform: scale(1.1);
         }
+
         .slider-dots {
             display: flex;
             justify-content: center;
@@ -496,6 +351,7 @@
             margin-top: 20px;
             padding-bottom: 20px;
         }
+
         .dot {
             width: 12px;
             height: 12px;
@@ -504,10 +360,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
         .dot.active {
             background: #FF6B8B;
             transform: scale(1.2);
         }
+
+        /* Slider Title */
         .slider-title {
             text-align: center;
             font-size: 2.2rem;
@@ -517,179 +376,110 @@
             max-width: 900px;
             padding: 0 20px;
         }
-        /* Features */
-        .features {
-            padding: 70px 0;
-            background: white;
+
+        .slider-title .emoji {
+            margin-right: 12px;
         }
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            font-family: var(--font-heading);
-            color: var(--dark);
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .feature-card {
-            background: #FFF9F9;
-            padding: 30px;
-            border-radius: 25px;
-            text-align: center;
-            transition: 0.3s;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border: 1px solid #ffe0e5;
-        }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(255,107,139,0.15);
-        }
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        .feature-title {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-        /* Counters */
-        .counters {
-            background: linear-gradient(120deg, #2D3047, #3c405e);
-            color: white;
-            padding: 70px 0;
-        }
-        .counters .section-title {
-            color: white;
-        }
-        .counters-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 50px;
-        }
-        .counter-item {
-            text-align: center;
-            min-width: 150px;
-        }
-        .counter-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            font-family: var(--font-heading);
-        }
-        /* CTA */
-        .cta-section {
-            background: linear-gradient(135deg, #FFE0E8, #FFD0DC);
-            padding: 70px 0;
-        }
-        .cta-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .cta-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
-        .btn-large {
-            padding: 14px 35px;
-            font-size: 1.1rem;
-        }
-        /* Footer */
-        .footer {
-            background: #1e1f2c;
-            color: #ddd;
-            padding: 50px 0 20px;
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-        .footer-logo h2 {
-            font-size: 1.8rem;
-        }
-        .footer-links ul {
-            list-style: none;
-        }
-        .footer-links li {
-            margin: 10px 0;
-        }
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-        }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-        }
-        /* responsive */
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .navbar ul { display: none; }
-            .hamburger { display: block; }
-            .hero-title { font-size: 1.8rem; }
-            .slider-wrapper { height: 350px; }
-            .slider-title { font-size: 1.6rem; }
-            .notification-item { font-size: 0.9rem; padding: 0 20px; }
+
+            /* Slider adjustments for mobile */
+            .slider-wrapper {
+                height: 350px;
+            }
+
+            .slider-controls {
+                padding: 0 10px;
+            }
+
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .slider-title {
+                font-size: 1.8rem;
+                margin: 20px auto 10px;
+                padding: 0 15px;
+            }
         }
+
+
         @media (max-width: 480px) {
-            .slider-wrapper { height: 280px; }
-            .slider-btn { width: 40px; height: 40px; font-size: 1.2rem; }
-            .logo h1 { font-size: 1.3rem; }
-            .logo img { width: 45px; height: 45px; }
-        }
-        .bg-element {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.3;
-            pointer-events: none;
-        }
-        .bg-balloon1 { top: 15%; left: 5%; animation: float 7s infinite; }
-        .bg-balloon2 { bottom: 10%; right: 8%; animation: float 8s infinite; }
-        .bg-star1 { top: 20%; right: 12%; animation: spin 10s linear infinite; }
-        .bg-star2 { bottom: 25%; left: 10%; }
-        .bg-cloud1 { top: 40%; left: -30px; font-size: 4rem; opacity: 0.2; }
-        .bg-cloud2 { bottom: 20%; right: -20px; font-size: 4rem; opacity: 0.2; }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+            .slider-wrapper {
+                height: 280px;
+            }
+
+            .slider-title {
+                font-size: 1.5rem;
+            }
+
+            /* Mobile-friendly CTA Kidd's Zone text */
+            .cta-title {
+                font-size: 1.6rem !important;
+                line-height: 1.4;
+            }
+
+            .cta-title .kidds-zone-colorful {
+                font-size: 1.8rem !important;
+            }
+
+            .cta-title .kidds-zone-colorful span {
+                -webkit-text-stroke: 1px white !important;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Floating Contact Toggle -->
     <div class="floating-contact">
         <div class="contact-icons" id="contactIcons">
-            <a href="tel:+917004706917" class="contact-icon call" title="Call Now"><i class="fas fa-phone"></i></a>
-            <a href="https://wa.me/917004706917" target="_blank" class="contact-icon whatsapp" title="WhatsApp Chat"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/kiddszone0206?igsh=MTdtZnd3dGR5eDAwZQ==" target="_blank" class="contact-icon instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@completestudy7889?si=dgF2ZriOwvWqWFS5" target="_blank" class="contact-icon youtube"><i class="fab fa-youtube"></i></a>
+            <a href="tel:+917004706917" class="contact-icon call" title="Call Now">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://wa.me/917004706917" target="_blank" class="contact-icon whatsapp" title="WhatsApp Chat">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/kiddszone0206?igsh=MTdtZnd3dGR5eDAwZQ==" target="_blank" class="contact-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com/@completestudy7889?si=dgF2ZriOwvWqWFS5" target="_blank" class="contact-icon youtube">
+                <i class="fab fa-youtube"></i>
+            </a>
         </div>
     </div>
 
+    <!-- Header & Navigation -->
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <img src="https://i.ibb.co/Z6VStLD0/Whats-App-Image-2026-04-03-at-8-45-30-PM.webp" alt="Logo">
+
+            <!-- LOGO + TEXT -->
+            <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+
+                <!-- Logo Image (Left Side) -->
+                <img src="https://i.ibb.co/Z6VStLD0/Whats-App-Image-2026-04-03-at-8-45-30-PM.webp" alt="Logo" style="width:50px; height:50px; object-fit:contain;">
+
+                <!-- Existing Text (Same as it is) -->
                 <div>
-                    <h1><span class="kidds-zone-colorful"><span class="letter-k">K</span><span class="letter-i">I</span><span class="letter-d1">D</span><span class="letter-d2">D</span><span class="letter-apo">'</span><span class="letter-s">S</span> <span class="letter-z">Z</span><span class="letter-o">O</span><span class="letter-n">N</span><span class="letter-e">E</span></span></h1>
+                    <h1 style="color: black;">
+                        <span class="kidds-zone-colorful">
+                            <span class="letter-k">K</span><span class="letter-i">I</span><span
+                                class="letter-d1">D</span><span class="letter-d2">D</span><span
+                                class="letter-apo">'</span><span class="letter-s">S</span>
+                            &nbsp;
+                            <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                                class="letter-n">N</span><span class="letter-e">E</span>
+                        </span>
+                    </h1>
                     <p class="tagline">A Unit of Complete Study</p>
                 </div>
+
             </div>
+
+            <!-- NAVBAR -->
             <nav class="navbar">
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link active">🏠 Home</a></li>
@@ -698,15 +488,17 @@
                     <li class="nav-item"><a href="payment.html" class="nav-link">💳 Pay Fees</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">📞 Contact</a></li>
                 </ul>
+
                 <div class="hamburger" id="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </div>
             </nav>
+
         </div>
     </header>
-
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-content">
             <button class="close-menu" id="closeMenu">&times;</button>
@@ -721,70 +513,316 @@
                 <a href="tel:+917004706917" class="mobile-call-btn">📞 Call Now</a>
                 <a href="https://wa.me/917004706917" target="_blank" class="mobile-whatsapp-btn">💬 WhatsApp Chat</a>
             </div>
+            <div class="mobile-decorations">
+                <div class="mobile-cloud"></div>
+                <div class="mobile-star"></div>
+                <div class="mobile-balloon"></div>
+            </div>
         </div>
     </div>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2 class="hero-title">Take a Step Forward to Your Child's <span class="highlight">Bright Future</span></h2>
-                <p class="hero-subtitle">Where learning meets fun! 🎈 A safe and nurturing environment for children from Baby Pre-Nursery to KG.</p>
+                <h2 class="hero-title">Take a Step Forward to Your Child's <span class="highlight">Bright Future</span>
+                </h2>
+                <p class="hero-subtitle">Where learning meets fun! 🎈 A safe and nurturing environment for children from
+                   Baby Pre-Nursery to KG.</p>
                 <div class="hero-buttons">
                     <a href="tel:+917004706917" class="btn btn-primary">📞 Call Now</a>
-                    <a href="https://wa.me/917004706917" target="_blank" class="btn btn-secondary">💬 WhatsApp Chat</a>
+                    <a href="https://wa.me/917004706917" target="_blank" class="btn btn-secondary">💬 WhatsApp
+                        Chat</a>
                 </div>
             </div>
 
+            <!-- NOTIFICATION MARQUEE -->
             <div class="notification-marquee">
-                <div class="marquee-header"><div class="marquee-icon">📢</div><h3 class="marquee-title">Important Announcements</h3></div>
-                <div class="marquee-content"><div class="marquee-track" id="marqueeTrack">
-                    <div class="notification-item"><span class="notification-icon">🎉</span><span class="notification-text">Summer Vacation: School will remain closed from May 15 to June 15</span><span class="notification-date">May 15 - Jun 15</span></div><div class="marquee-divider">•</div>
-                    <div class="notification-item"><span class="notification-icon">📅</span><span class="notification-text">Annual Sports Day: Join us on March 25 for exciting games and activities</span><span class="notification-date">Mar 25</span></div><div class="marquee-divider">•</div>
-                    <div class="notification-item"><span class="notification-icon">🎨</span><span class="notification-text">Art Competition: Submit your entries by March 30 for the annual art contest</span><span class="notification-date">Till Mar 30</span></div><div class="marquee-divider">•</div>
-                    <div class="notification-item"><span class="notification-icon">🏫</span><span class="notification-text">Admissions Open: Limited seats available for Nursery to Class 5</span><span class="notification-date">Apply Now</span></div><div class="marquee-divider">•</div>
-                    <div class="notification-item"><span class="notification-icon">📚</span><span class="notification-text">Parent-Teacher Meeting: Scheduled for April 5, 2026</span><span class="notification-date">Apr 5</span></div><div class="marquee-divider">•</div>
-                    <div class="notification-item"><span class="notification-icon">🎉</span><span class="notification-text">Summer Vacation: School will remain closed from May 15 to June 15</span><span class="notification-date">May 15 - Jun 15</span></div>
-                </div></div>
-                <div class="marquee-decoration marquee-balloon">🎈</div><div class="marquee-decoration marquee-star">⭐</div>
+                <div class="marquee-header">
+                    <div class="marquee-icon">
+                        📢
+                    </div>
+                    <h3 class="marquee-title">Important Announcements</h3>
+                </div>
+
+                <div class="marquee-content">
+                    <div class="marquee-track" id="marqueeTrack">
+                        <div class="notification-item">
+                            <span class="notification-icon">🎉</span>
+                            <span class="notification-text">Summer Vacation: School will remain closed from May 15 to
+                                June 15</span>
+                            <span class="notification-date">May 15 - Jun 15</span>
+                        </div>
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">📅</span>
+                            <span class="notification-text">Annual Sports Day: Join us on March 25 for exciting games
+                                and activities</span>
+                            <span class="notification-date">Mar 25</span>
+                        </div>
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">🎨</span>
+                            <span class="notification-text">Art Competition: Submit your entries by March 30 for the
+                                annual art contest</span>
+                            <span class="notification-date">Till Mar 30</span>
+                        </div>
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">🏫</span>
+                            <span class="notification-text">Admissions Open: Limited seats available for Nursery to
+                                Class 5</span>
+                            <span class="notification-date">Apply Now</span>
+                        </div>
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">📚</span>
+                            <span class="notification-text">Parent-Teacher Meeting: Scheduled for April 5, 2026</span>
+                            <span class="notification-date">Apr 5</span>
+                        </div>
+                        <!-- Duplicate items for seamless loop -->
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">🎉</span>
+                            <span class="notification-text">Summer Vacation: School will remain closed from May 15 to
+                                June 15</span>
+                            <span class="notification-date">May 15 - Jun 15</span>
+                        </div>
+                        <div class="marquee-divider">•</div>
+                        <div class="notification-item">
+                            <span class="notification-icon">📅</span>
+                            <span class="notification-text">Annual Sports Day: Join us on March 25 for exciting games
+                                and activities</span>
+                            <span class="notification-date">Mar 25</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decorative elements -->
+                <div class="marquee-decoration marquee-balloon">🎈</div>
+                <div class="marquee-decoration marquee-star">⭐</div>
             </div>
 
+            <!-- Slider Title -->
             <h2 class="slider-title"><span class="emoji">📸</span> Our School Gallery</h2>
+
+            <!-- Image Slider (Replaces hero-illustration) -->
             <div class="image-slider-container">
                 <div class="slider-wrapper">
                     <div class="slider" id="slider">
-                        <div class="slide"><div style="overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;height:100%;"><iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="100%" type="text/html" src="https://www.youtube.com/embed/ZDBEBvRu21w?autoplay=1&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0"></iframe></div></div>
-                        <div class="slide"><img src="https://lh3.googleusercontent.com/p/AF1QipMfY0K-QrPFpGht35c9BKpANov9cHpOKEjaN1V5=s1360-w1360-h1020-rw" alt="School Playground" class="slide-img"></div>
-                        <div class="slide"><img src="https://lh3.googleusercontent.com/p/AF1QipO-81xJbRnDi2FHZAm0jHKvfnxIoQNU0ohV-wUM=s1360-w1360-h1020-rw" alt="Classroom Activity" class="slide-img"></div>
-                        <div class="slide"><img src="https://lh3.googleusercontent.com/p/AF1QipOHJhmWZxvtWr63SoaksAOr_AXqXISewg1hT07G=s1360-w1360-h1020-rw" alt="Children Learning" class="slide-img"></div>
-                        <div class="slide"><img src="https://lh3.googleusercontent.com/p/AF1QipMQj9RSTLyQPn3pYdoZwI-w9P-Xcvw6UPNN77Nl=s1360-w1360-h1020-rw" alt="Sports Activities" class="slide-img"></div>
-                        <div class="slide"><img src="https://lh3.googleusercontent.com/p/AF1QipNXL5poU0jlNxTdmS2DXXSTmVqAIh8X1r4nxyAe=s1360-w1360-h1020-rw" alt="Cultural Events" class="slide-img"></div>
+                        <!-- Slide 1 -->
+                        
+<div class="slide">
+                           <iframe src="https://www.youtube.com/embed/ZDBEBvRu21w?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe>
+                                alt="School Playground" class="slide-img">
+                        </div>
+
+
+<div class="slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipMfY0K-QrPFpGht35c9BKpANov9cHpOKEjaN1V5=s1360-w1360-h1020-rw"
+                                alt="School Playground" class="slide-img">
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipO-81xJbRnDi2FHZAm0jHKvfnxIoQNU0ohV-wUM=s1360-w1360-h1020-rw"
+                                alt="Classroom Activity" class="slide-img">
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipOHJhmWZxvtWr63SoaksAOr_AXqXISewg1hT07G=s1360-w1360-h1020-rw"
+                                alt="Children Learning" class="slide-img">
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipMQj9RSTLyQPn3pYdoZwI-w9P-Xcvw6UPNN77Nl=s1360-w1360-h1020-rw"
+                                alt="Sports Activities" class="slide-img">
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipNXL5poU0jlNxTdmS2DXXSTmVqAIh8X1r4nxyAe=s1360-w1360-h1020-rw"
+                                alt="Cultural Events" class="slide-img">
+                        </div>
                     </div>
-                    <div class="slider-controls"><button class="slider-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button><button class="slider-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button></div>
+
+                    <!-- Slider Controls -->
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="prevBtn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slider-btn" id="nextBtn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
+
+                <!-- Dots Indicator -->
                 <div class="slider-dots" id="sliderDots"></div>
             </div>
         </div>
-        <div class="bg-element bg-balloon1">🎈</div><div class="bg-element bg-balloon2">🎈</div><div class="bg-element bg-star1">⭐</div><div class="bg-element bg-star2">⭐</div><div class="bg-element bg-cloud1">☁️</div><div class="bg-element bg-cloud2">☁️</div>
+
+        <!-- Animated Background Elements -->
+        <div class="bg-element bg-balloon1">🎈</div>
+        <div class="bg-element bg-balloon2">🎈</div>
+        <div class="bg-element bg-star1">⭐</div>
+        <div class="bg-element bg-star2">⭐</div>
+        <div class="bg-element bg-cloud1">☁️</div>
+        <div class="bg-element bg-cloud2">☁️</div>
     </section>
 
-    <section class="features"><div class="container"><h2 class="section-title">Our Special Features 🎯</h2><div class="features-grid"><div class="feature-card"><div class="feature-icon"><i class="fas fa-laptop-house"></i></div><h3 class="feature-title">Smart Classes</h3><p class="feature-description">Interactive digital learning with animated lessons and educational games.</p></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-video"></i></div><h3 class="feature-title">CCTV Surveillance</h3><p class="feature-description">24/7 security monitoring to ensure your child's safety at all times.</p></div><div class="feature-card"><div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div><h3 class="feature-title">Projector Based Learning</h3><p class="feature-description">Visual and engaging lessons with projectors for better understanding.</p></div></div></div></section>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Our Special Features 🎯</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-house"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Classes</h3>
+                    <p class="feature-description">Interactive digital learning with animated lessons and educational
+                        games.</p>
+                    <div class="feature-emoji">📱</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="feature-title">CCTV Surveillance</h3>
+                    <p class="feature-description">24/7 security monitoring to ensure your child's safety at all times.
+                    </p>
+                    <div class="feature-emoji">👁️</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="feature-title">Projector Based Learning</h3>
+                    <p class="feature-description">Visual and engaging lessons with projectors for better understanding.
+                    </p>
+                    <div class="feature-emoji">📽️</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="counters"><div class="container"><h2 class="section-title">Our School in Numbers 📊</h2><div class="counters-grid"><div class="counter-item"><div class="counter-number" data-target="300">0</div><div class="counter-label">Happy Kids 😊</div></div><div class="counter-item"><div style="font-size:3.5rem;font-weight:900;">Up to KG</div><div class="counter-label">Classes 📚</div></div><div class="counter-item"><div class="counter-number" data-target="20">0</div><div class="counter-label">Teachers 👩‍🏫</div></div><div class="counter-item"><div class="counter-number" data-target="4">0</div><div class="counter-label">Years Experience 🎓</div></div></div></div></section>
+    <!-- Counters Section -->
+    <section class="counters">
+        <div class="container">
+            <h2 class="section-title">Our School in Numbers 📊</h2>
+            <div class="counters-grid">
+                <div class="counter-item">
+                    <div class="counter-number" data-target="300">0</div>
+                    <div class="counter-label">Happy Kids 😊</div>
+                </div>
+                <div class="counter-item">
+                    <div style="font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    font-family: var(--font-heading);" >Up to KG</div>
+                    <div class="counter-label">Classes 📚</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-target="20">0</div>
+                    <div class="counter-label">Teachers 👩‍🏫</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-target="4">0</div>
+                    <div class="counter-label">Years Experience 🎓</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="cta-section"><div class="container"><div class="cta-content"><h2 class="cta-title">Ready to Join <span class="kidds-zone-colorful"><span class="letter-k">K</span><span class="letter-i">I</span><span class="letter-d1">D</span><span class="letter-d2">D</span><span class="letter-apo">'</span><span class="letter-s">S</span> <span class="letter-z">Z</span><span class="letter-o">O</span><span class="letter-n">N</span><span class="letter-e">E</span></span>? 🎉</h2><p class="cta-text">Give your child the best start in their educational journey. Enroll now for the upcoming session!</p><div class="cta-buttons"><a href="admission.html" class="btn btn-primary btn-large">✏️ Admission Form</a><a href="contact.html" class="btn btn-secondary btn-large">📞 Schedule a Visit</a></div></div></div></section>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Join <span class="kidds-zone-colorful">
+                        <span class="letter-k">K</span><span class="letter-i">I</span><span
+                            class="letter-d1">D</span><span class="letter-d2">D</span><span
+                            class="letter-apo">'</span><span class="letter-s">S</span>
+                        &nbsp;
+                        <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                            class="letter-n">N</span><span class="letter-e">E</span>
+                    </span>? 🎉</h2>
+                <p class="cta-text">Give your child the best start in their educational journey. Enroll now for the
+                    upcoming session!</p>
+                <div class="cta-buttons">
+                    <a href="admission.html" class="btn btn-primary btn-large">✏️ Admission Form</a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">📞 Schedule a Visit</a>
+                </div>
+            </div>
+            <div class="cta-illustration">
+                <div class="cta-bus">🚌</div>
+                <div class="cta-kids">👫</div>
+                <div class="cta-balloons">🎈🎈</div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="footer"><div class="container"><div class="footer-content"><div class="footer-logo"><h2><span class="kidds-zone-colorful"><span class="letter-k">K</span><span class="letter-i">I</span><span class="letter-d1">D</span><span class="letter-d2">D</span><span class="letter-apo">'</span><span class="letter-s">S</span> <span class="letter-z">Z</span><span class="letter-o">O</span><span class="letter-n">N</span><span class="letter-e">E</span></span></h2><p>A Unit of Complete Study</p><p>Baby Pre-Nursery to KG</p></div><div class="footer-links"><h3>Quick Links</h3><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="admission.html">Admission</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-contact"><h3>Contact Us</h3><p><i class="fas fa-map-marker-alt"></i> Gaush Nagar mani tola doranda, Ranchi, Jharkhand 834002</p><p><i class="fas fa-phone"></i> +91 70047 06917</p><p><i class="fas fa-envelope"></i> kiddszone31@gmail.com</p></div></div><div class="footer-bottom"><p>&copy; 2026 <span class="kidds-zone-colorful"><span class="letter-k">K</span><span class="letter-i">I</span><span class="letter-d1">D</span><span class="letter-d2">D</span><span class="letter-apo">'</span><span class="letter-s">S</span> <span class="letter-z">Z</span><span class="letter-o">O</span><span class="letter-n">N</span><span class="letter-e">E</span></span> - A Unit of Complete Study. All rights reserved. 🧸</p></div></div></footer>
+    <!-- Footer -->
+<footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><span class="kidds-zone-colorful">
+                            <span class="letter-k">K</span><span class="letter-i">I</span><span
+                                class="letter-d1">D</span><span class="letter-d2">D</span><span
+                                class="letter-apo">'</span><span class="letter-s">S</span>
+                            &nbsp;
+                            <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                                class="letter-n">N</span><span class="letter-e">E</span>
+                        </span></h2>
+                    <p>A Unit of Complete Study</p>
+                    <p>Baby Pre-Nursery to KG</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Gaush Nagar mani tola doranda, Ranchi, Jharkhand 834002</p>
+                    <p><i class="fas fa-phone"></i> +91 70047 06917</p>
+                    <p><i class="fas fa-envelope"></i> kiddszone31@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <span class="kidds-zone-colorful">
+                        <span class="letter-k">K</span><span class="letter-i">I</span><span
+                            class="letter-d1">D</span><span class="letter-d2">D</span><span
+                            class="letter-apo">'</span><span class="letter-s">S</span>
+                        &nbsp;
+                        <span class="letter-z">Z</span><span class="letter-o">O</span><span
+                            class="letter-n">N</span><span class="letter-e">E</span>
+                    </span id="studys"> - A Unit of Complete Study. All rights reserved. 🧸</p>
+            </div>
+        </div>
+    </footer>
 
+    <script src="script.js"></script>
     <script>
-        // Slider Manual Only (auto-scroll REMOVED)
+        // Image Slider JavaScript
         document.addEventListener('DOMContentLoaded', function () {
             const slider = document.getElementById('slider');
             const slides = document.querySelectorAll('.slide');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const sliderDots = document.getElementById('sliderDots');
+
             let currentSlide = 0;
             const slideCount = slides.length;
+            let slideInterval;
+            const slideSpeed = 4000; // Fixed speed: 4 seconds
 
             // Create dots
             slides.forEach((_, index) => {
@@ -795,64 +833,127 @@
                 sliderDots.appendChild(dot);
             });
 
+            // Update slider position and active dot
             function updateSlider() {
                 slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+                // Update dots
                 document.querySelectorAll('.dot').forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentSlide);
                 });
+
+                // Reset auto-slide timer
+                resetAutoSlide();
             }
 
-            function nextSlide() { currentSlide = (currentSlide + 1) % slideCount; updateSlider(); }
-            function prevSlide() { currentSlide = (currentSlide - 1 + slideCount) % slideCount; updateSlider(); }
-            function goToSlide(index) { currentSlide = index; updateSlider(); }
+            // Next slide function
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }
 
+            // Previous slide function
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+
+            // Go to specific slide
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlider();
+            }
+
+            // Auto slide with fixed speed
+            function startAutoSlide() {
+                slideInterval = setInterval(nextSlide, slideSpeed);
+            }
+
+            // Reset auto-slide timer
+            function resetAutoSlide() {
+                clearInterval(slideInterval);
+                startAutoSlide();
+            }
+
+            // Event listeners for navigation
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
 
-            // Touch swipe
-            let startX = 0;
+            // Pause auto-slide on hover
             const sliderContainer = document.querySelector('.slider-wrapper');
-            sliderContainer.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
-            sliderContainer.addEventListener('touchend', (e) => {
-                let endX = e.changedTouches[0].clientX;
-                let diff = startX - endX;
-                if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+            sliderContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            sliderContainer.addEventListener('mouseleave', startAutoSlide);
+
+            // Initialize
+            updateSlider();
+            startAutoSlide();
+
+            // Touch swipe support for mobile
+            let startX = 0;
+            let endX = 0;
+
+            sliderContainer.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                clearInterval(slideInterval);
             });
 
-            function adjustSliderHeight() {
-                const wrapper = document.querySelector('.slider-wrapper');
-                if (window.innerWidth <= 480) wrapper.style.height = '280px';
-                else if (window.innerWidth <= 768) wrapper.style.height = '350px';
-                else wrapper.style.height = '500px';
+            sliderContainer.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+                startAutoSlide();
+            });
+
+            function handleSwipe() {
+                const threshold = 50;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > threshold) {
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
             }
+
+            // Responsive height adjustments
+            function adjustSliderHeight() {
+                const sliderWrapper = document.querySelector('.slider-wrapper');
+                if (window.innerWidth <= 768) {
+                    sliderWrapper.style.height = '350px';
+                } else if (window.innerWidth <= 480) {
+                    sliderWrapper.style.height = '280px';
+                } else {
+                    sliderWrapper.style.height = '500px';
+                }
+            }
+
             adjustSliderHeight();
             window.addEventListener('resize', adjustSliderHeight);
-            updateSlider();
 
-            // Counter animation
-            const counters = document.querySelectorAll('.counter-number');
-            const speed = 200;
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    let count = +counter.innerText;
-                    const inc = target / speed;
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 20);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCount();
+            // Marquee functionality
+            const marqueeTrack = document.getElementById('marqueeTrack');
+
+            // Pause marquee on hover
+            marqueeTrack.addEventListener('mouseenter', () => {
+                marqueeTrack.style.animationPlayState = 'paused';
             });
 
-            // Mobile menu
-            const hamburger = document.getElementById('hamburger');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const closeMenu = document.getElementById('closeMenu');
-            hamburger.addEventListener('click', () => mobileMenu.classList.add('active'));
-            closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
+            marqueeTrack.addEventListener('mouseleave', () => {
+                marqueeTrack.style.animationPlayState = 'running';
+            });
+
+            // Adjust marquee animation speed based on screen size
+            function adjustMarqueeSpeed() {
+                if (window.innerWidth <= 480) {
+                    marqueeTrack.style.animationDuration = '100s';
+                } else {
+                    marqueeTrack.style.animationDuration = '150s';
+                }
+            }
+
+            adjustMarqueeSpeed();
+            window.addEventListener('resize', adjustMarqueeSpeed);
         });
     </script>
 </body>
