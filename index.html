@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KIDD'S ZONE - Kids School</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,12 +22,13 @@
             margin: 25px auto 15px;
             background: linear-gradient(135deg, #FFE8F0 0%, #FFD6E0 100%);
             border-radius: 15px;
-            padding: 15px 20px;
+            padding: 15px 20px 25px; /* Increased bottom padding */
             box-shadow: 0 8px 20px rgba(255, 107, 139, 0.25);
             border: 3px solid #FF6B8B;
             position: relative;
             overflow: hidden;
             z-index: 5;
+            min-height: 200px; /* Ensures increased height */
         }
 
         .marquee-header {
@@ -116,6 +117,40 @@
             flex-shrink: 0;
         }
 
+        /* ===== NEW: ROUTINE LINKS STYLES ===== */
+        .routine-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-top: 25px; /* Spacing from the moving marquee */
+            position: relative;
+            z-index: 10;
+        }
+
+        .routine-btn {
+            background-color: white;
+            color: #2D3047;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #FF6B8B;
+            border-radius: 25px;
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(255, 107, 139, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .routine-btn:hover {
+            background-color: #FF6B8B;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 107, 139, 0.3);
+        }
+
         /* Decorative elements */
         .marquee-decoration {
             position: absolute;
@@ -185,7 +220,7 @@
         /* Responsive styles */
         @media (max-width: 768px) {
             .notification-marquee {
-                padding: 12px 15px;
+                padding: 12px 15px 20px;
                 margin: 20px auto 25px;
             }
 
@@ -218,11 +253,16 @@
                 margin: 0 15px;
                 font-size: 1.2rem;
             }
+
+            .routine-btn {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
         }
 
         @media (max-width: 480px) {
             .notification-marquee {
-                padding: 10px 12px;
+                padding: 10px 12px 20px;
                 margin: 15px auto 45px;
                 border-width: 2px;
             }
@@ -266,11 +306,9 @@
             .marquee-balloon,
             .marquee-star {
                 display: none;
-                /* Hide decorations on very small screens */
             }
         }
 
-        /* For very small screens, adjust animation speed */
         @media (max-width: 360px) {
             .marquee-track {
                 animation: marqueeScroll 20s linear infinite;
@@ -383,8 +421,6 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
-
-            /* Slider adjustments for mobile */
             .slider-wrapper {
                 height: 350px;
             }
@@ -406,7 +442,6 @@
             }
         }
 
-
         @media (max-width: 480px) {
             .slider-wrapper {
                 height: 280px;
@@ -416,7 +451,6 @@
                 font-size: 1.5rem;
             }
 
-            /* Mobile-friendly CTA Kidd's Zone text */
             .cta-title {
                 font-size: 1.6rem !important;
                 line-height: 1.4;
@@ -453,25 +487,21 @@
 
     <header class="header">
         <div class="container">
-
             <div class="logo" style="display: flex; align-items: center; gap: 10px;">
-
                 <img src="https://i.ibb.co/Z6VStLD0/Whats-App-Image-2026-04-03-at-8-45-30-PM.webp" alt="Logo" style="width:50px; height:50px; object-fit:contain;">
-
                 <div>
                     <h1 style="color: black;">
                         <span class="kidds-zone-colorful">
                             <span class="letter-k">K</span><span class="letter-i">I</span><span
                                 class="letter-d1">D</span><span class="letter-d2">D</span><span
                                 class="letter-apo">'</span><span class="letter-s">S</span>
-                             
+                             
                             <span class="letter-z">Z</span><span class="letter-o">O</span><span
                                 class="letter-n">N</span><span class="letter-e">E</span>
                         </span>
                     </h1>
                     <p class="tagline">A Unit of Complete Study</p>
                 </div>
-
             </div>
 
             <nav class="navbar">
@@ -489,9 +519,9 @@
                     <span class="bar"></span>
                 </div>
             </nav>
-
         </div>
     </header>
+
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-content">
             <button class="close-menu" id="closeMenu">×</button>
@@ -520,7 +550,7 @@
                 <h2 class="hero-title">Take a Step Forward to Your Child's <span class="highlight">Bright Future</span>
                 </h2>
                 <p class="hero-subtitle">Where learning meets fun! 🎈 A safe and nurturing environment for children from
-                   Baby Pre-Nursery to KG.</p>
+                    Baby Pre-Nursery to KG.</p>
                 <div class="hero-buttons">
                     <a href="tel:+917004706917" class="btn btn-primary">📞 Call Now</a>
                     <a href="https://wa.me/917004706917" target="_blank" class="btn btn-secondary">💬 WhatsApp
@@ -564,6 +594,14 @@
                     </div>
                 </div>
 
+                <div class="routine-links">
+                    <a href="https://drive.google.com/uc?export=download&id=1VQlCHBDnH-fuMvGtppdc7UV5PfyGUcSH" class="routine-btn">Pre Nur Routine</a>
+                    <a href="https://drive.google.com/uc?export=download&id=1gyIU8dq_HcU9qKQXy2fNP_XoiHsPL2HQ" class="routine-btn">Nursery Routine</a>
+                    <a href="https://drive.google.com/uc?export=download&id=17n-Hkj33TWzHcD4OCY-1RLmi_mwgC2a9" class="routine-btn">kg routine</a>
+                    <a href="https://drive.google.com/file/d/16PIFJwmofCgBQguPGEmmUHukZ2t6hKvL/view?usp=sharing" class="routine-btn">B.p.n routine</a>
+                    
+                </div>
+
                 <div class="marquee-decoration marquee-balloon">🎈</div>
                 <div class="marquee-decoration marquee-star">⭐</div>
             </div>
@@ -575,11 +613,9 @@
                     <div class="slider" id="slider">
                         <div class="slide">
                            <iframe src="https://www.youtube.com/embed/ZDBEBvRu21w?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe>
-                                alt="School Playground" class="slide-img">
                         </div>
 
-
-<div class="slide">
+                        <div class="slide">
                             <img src="https://lh3.googleusercontent.com/p/AF1QipMfY0K-QrPFpGht35c9BKpANov9cHpOKEjaN1V5=s1360-w1360-h1020-rw"
                                 alt="School Playground" class="slide-img">
                         </div>
@@ -671,10 +707,7 @@
                     <div class="counter-label">Happy Kids 😊</div>
                 </div>
                 <div class="counter-item">
-                    <div style="font-size: 3.5rem;
-    font-weight: 900;
-    margin-bottom: 10px;
-    font-family: var(--font-heading);" >Up to KG</div>
+                    <div style="font-size: 3.5rem; font-weight: 900; margin-bottom: 10px; font-family: var(--font-heading);" >Up to KG</div>
                     <div class="counter-label">Classes 📚</div>
                 </div>
                 <div class="counter-item">
@@ -696,7 +729,7 @@
                         <span class="letter-k">K</span><span class="letter-i">I</span><span
                             class="letter-d1">D</span><span class="letter-d2">D</span><span
                             class="letter-apo">'</span><span class="letter-s">S</span>
-                         
+                         
                         <span class="letter-z">Z</span><span class="letter-o">O</span><span
                             class="letter-n">N</span><span class="letter-e">E</span>
                     </span>? 🎉</h2>
@@ -723,7 +756,7 @@
                             <span class="letter-k">K</span><span class="letter-i">I</span><span
                                 class="letter-d1">D</span><span class="letter-d2">D</span><span
                                 class="letter-apo">'</span><span class="letter-s">S</span>
-                             
+                             
                             <span class="letter-z">Z</span><span class="letter-o">O</span><span
                                 class="letter-n">N</span><span class="letter-e">E</span>
                         </span></h2>
@@ -751,7 +784,7 @@
                         <span class="letter-k">K</span><span class="letter-i">I</span><span
                             class="letter-d1">D</span><span class="letter-d2">D</span><span
                             class="letter-apo">'</span><span class="letter-s">S</span>
-                         
+                         
                         <span class="letter-z">Z</span><span class="letter-o">O</span><span
                             class="letter-n">N</span><span class="letter-e">E</span>
                     </span id="studys"> - A Unit of Complete Study. All rights reserved. 🧸</p>
